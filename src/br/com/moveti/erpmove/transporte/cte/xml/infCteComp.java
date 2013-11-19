@@ -8,24 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("infCteComp")
 public class infCteComp {
     @XStreamAlias("chave")
     private String chave;
 
-    /**
-     * @return the chave
-     */
-    public String getChave() {
-        return chave;
-    }
-
-    /**
-     * @param chave the chave to set
-     */
-    public void setChave(String chave) {
-        this.chave = chave;
-    }
+   
 }

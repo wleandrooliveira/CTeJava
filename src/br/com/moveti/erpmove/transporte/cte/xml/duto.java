@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**Leiaute – Dutoviário
  * Informações do Dutoviário - Obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("duto")
 public class duto {
@@ -19,47 +19,6 @@ public class duto {
     @XStreamAlias("dFim")
     private String dFim;
 
-    /**
-     * @return the vTar
-     */
-    public String getvTar() {
-        return vTar;
-    }
-
-    /**
-     * @param vTar the vTar to set
-     */
-    public void setvTar(String vTar) {
-        this.vTar = vTar;
-    }
-
-    /**
-     * @return the dIni
-     */
-    public String getdIni() {
-        return dIni;
-    }
-
-    /**
-     * @param dIni the dIni to set
-     */
-    public void setdIni(String dIni) {
-        this.dIni = dIni;
-    }
-
-    /**
-     * @return the dFim
-     */
-    public String getdFim() {
-        return dFim;
-    }
-
-    /**
-     * @param dFim the dFim to set
-     */
-    public void setdFim(String dFim) {
-        this.dFim = dFim;
-    }
     
     
     

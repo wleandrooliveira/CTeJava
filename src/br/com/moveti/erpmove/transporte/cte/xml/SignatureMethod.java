@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("SignatureMethod")
 public class SignatureMethod {

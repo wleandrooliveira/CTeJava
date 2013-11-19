@@ -8,23 +8,11 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("imp")
 public class imp {
     private ICMS ICMS = new ICMS();
 
-    /**
-     * @return the ICMS
-     */
-    public ICMS getICMS() {
-        return ICMS;
-    }
-
-    /**
-     * @param ICMS the ICMS to set
-     */
-    public void setICMS(ICMS ICMS) {
-        this.ICMS = ICMS;
-    }
+    
 }

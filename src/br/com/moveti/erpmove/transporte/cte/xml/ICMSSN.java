@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Simples Nacional - Obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("CST")
 public class ICMSSN {
@@ -17,31 +17,5 @@ public class ICMSSN {
     @XStreamAlias("infAdFisco")
     private String infAdFisco;
 
-    /**
-     * @return the indSN
-     */
-    public String getIndSN() {
-        return indSN;
-    }
-
-    /**
-     * @param indSN the indSN to set
-     */
-    public void setIndSN(String indSN) {
-        this.indSN = indSN;
-    }
-
-    /**
-     * @return the infAdFisco
-     */
-    public String getInfAdFisco() {
-        return infAdFisco;
-    }
-
-    /**
-     * @param infAdFisco the infAdFisco to set
-     */
-    public void setInfAdFisco(String infAdFisco) {
-        this.infAdFisco = infAdFisco;
-    }
+    
 }

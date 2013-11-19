@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("retInutCTe")
 public class retInutCTe {
@@ -17,27 +17,5 @@ public class retInutCTe {
     private infInut infInut = new infInut();   
     private Signature Signature = new Signature();
 
-    public String getVersao() {
-        return versao;
-    }
-
-    public void setVersao(String versao) {
-        this.versao = versao;
-    }
-
-    public infInut getInfInut() {
-        return infInut;
-    }
-
-    public void setInfInut(infInut infInut) {
-        this.infInut = infInut;
-    }
-
-    public Signature getSignature() {
-        return Signature;
-    }
-
-    public void setSignature(Signature Signature) {
-        this.Signature = Signature;
-    }
+   
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("Signature")
 public class Signature {

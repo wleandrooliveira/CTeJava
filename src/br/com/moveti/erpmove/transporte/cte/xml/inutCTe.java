@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("inutCTe")
 public class inutCTe {
@@ -17,45 +17,5 @@ public class inutCTe {
     private infInut infInut = new infInut();
     private Signature Signature = new Signature();
 
-    /**
-     * @return the versao
-     */
-    public String getVersao() {
-        return versao;
-    }
-
-    /**
-     * @param versao the versao to set
-     */
-    public void setVersao(String versao) {
-        this.versao = versao;
-    }
-
-    /**
-     * @return the infInut
-     */
-    public infInut getInfInut() {
-        return infInut;
-    }
-
-    /**
-     * @param infInut the infInut to set
-     */
-    public void setInfInut(infInut infInut) {
-        this.infInut = infInut;
-    }
-
-    /**
-     * @return the Signature
-     */
-    public Signature getSignature() {
-        return Signature;
-    }
-
-    /**
-     * @param Signature the Signature to set
-     */
-    public void setSignature(Signature Signature) {
-        this.Signature = Signature;
-    }
+    
 }

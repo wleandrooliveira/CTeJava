@@ -8,24 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Lacres dos containeres/ULD - Não Obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("lacContQt")
 public class lacContQt {
     @XStreamAlias("nLacre")
     private String nLacre;
 
-    /**
-     * @return the nLacre
-     */
-    public String getnLacre() {
-        return nLacre;
-    }
-
-    /**
-     * @param nLacre the nLacre to set
-     */
-    public void setnLacre(String nLacre) {
-        this.nLacre = nLacre;
-    }
+    
 }

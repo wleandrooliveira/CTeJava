@@ -8,43 +8,41 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Previsão do fluxo da carga - obrigatório para o modelo de transporte aéreo.
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  * 
  */
-
-
 @XStreamAlias("fluxo")
 public class fluxo {
-    
+
     @XStreamAlias("xOrig")
     private String xOrig;
     private pass pass = new pass();
 
     /**
-     * @return the xOrig
-     */
-    public String getxOrig() {
-        return xOrig;
-    }
-
-    /**
-     * @param xOrig the xOrig to set
+     * Descricao: Sigla ou código interno da Filial/Porto/Estação/ Aeroporto de Origem
+     * Observacao: Observações para o modal aéreo: - Preenchimento obrigatório para o modal aéreo. - O código de três letras IATA do aeroporto de partida deverá ser incluído como primeira anotação. Quando não for possível, utilizar a sigla OACI.
+     * Tamanho: 1 - 15
+     * @param 
      */
     public void setxOrig(String xOrig) {
         this.xOrig = xOrig;
     }
 
     /**
-     * @return the pass
+     * Descricao: 
+     * Observacao: 
+     * Tamanho: 0 - n
+     * @param 
      */
-    public pass getPass() {
+    public void setPass(br.com.moveti.erpmove.transporte.cte.xml.pass pass) {
+        this.pass = pass;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.pass getPass() {
         return pass;
     }
 
-    /**
-     * @param pass the pass to set
-     */
-    public void setPass(pass pass) {
-        this.pass = pass;
+    public String getxOrig() {
+        return xOrig;
     }
 }

@@ -6,7 +6,7 @@ package br.com.moveti.erpmove.transporte.cte.xml;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 public class X509Data {
 

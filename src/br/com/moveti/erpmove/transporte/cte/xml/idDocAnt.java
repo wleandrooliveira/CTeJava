@@ -15,31 +15,5 @@ public class idDocAnt {
     private idDocAntPap idDocAntPap = new idDocAntPap();
     private idDocAntEle idDocAntEle = new idDocAntEle();
 
-    /**
-     * @return the idDocAntPap
-     */
-    public idDocAntPap getIdDocAntPap() {
-        return idDocAntPap;
-    }
-
-    /**
-     * @param idDocAntPap the idDocAntPap to set
-     */
-    public void setIdDocAntPap(idDocAntPap idDocAntPap) {
-        this.idDocAntPap = idDocAntPap;
-    }
-
-    /**
-     * @return the idDocAntEle
-     */
-    public idDocAntEle getIdDocAntEle() {
-        return idDocAntEle;
-    }
-
-    /**
-     * @param idDocAntEle the idDocAntEle to set
-     */
-    public void setIdDocAntEle(idDocAntEle idDocAntEle) {
-        this.idDocAntEle = idDocAntEle;
-    }
+    
 }

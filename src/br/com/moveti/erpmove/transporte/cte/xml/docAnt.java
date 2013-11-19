@@ -8,23 +8,11 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("docAnt")
 public class docAnt {
     private emiDocAnt emiDocAnt = new emiDocAnt();
 
-    /**
-     * @return the emiDocAnt
-     */
-    public emiDocAnt getEmiDocAnt() {
-        return emiDocAnt;
-    }
-
-    /**
-     * @param emiDocAnt the emiDocAnt to set
-     */
-    public void setEmiDocAnt(emiDocAnt emiDocAnt) {
-        this.emiDocAnt = emiDocAnt;
-    }
+    
 }

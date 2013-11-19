@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 public class conhecimentoTransporteEletronico_Entrada {
 

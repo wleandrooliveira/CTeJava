@@ -14,7 +14,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  *
- * @author Henrique
+ * @author Geraldo Henrique Lacerda Pinto
  */
 public class _Funcoes
 {

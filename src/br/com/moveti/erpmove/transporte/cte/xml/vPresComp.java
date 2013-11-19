@@ -8,24 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("vPresComp")
 public class vPresComp {
     @XStreamAlias("vTPrest")
     private String vTPrest;
 
-    /**
-     * @return the vTPrest
-     */
-    public String getvTPrest() {
-        return vTPrest;
-    }
-
-    /**
-     * @param vTPrest the vTPrest to set
-     */
-    public void setvTPrest(String vTPrest) {
-        this.vTPrest = vTPrest;
-    }
+    
 }

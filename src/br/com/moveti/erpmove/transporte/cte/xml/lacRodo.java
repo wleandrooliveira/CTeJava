@@ -8,24 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Lacres - Não obrigatório [0-n]
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("lacRodo")
 public class lacRodo {
    @XStreamAlias("nLacre")
    private String nLacre;
 
-    /**
-     * @return the nLacre
-     */
-    public String getnLacre() {
-        return nLacre;
-    }
-
-    /**
-     * @param nLacre the nLacre to set
-     */
-    public void setnLacre(String nLacre) {
-        this.nLacre = nLacre;
-    }
+   
 }

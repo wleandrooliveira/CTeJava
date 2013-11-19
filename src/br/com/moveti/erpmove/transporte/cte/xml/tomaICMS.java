@@ -8,55 +8,55 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Tomador é contribuinte do ICMS - Obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("tomaICMS")
 public class tomaICMS {
+
     @XStreamAlias("refNFe")
     private String refNFe;
     private refNF refNF = new refNF();
     private String refCte;
 
     /**
-     * @return the refNFe
-     */
-    public String getRefNFe() {
-        return refNFe;
-    }
-
-    /**
-     * @param refNFe the refNFe to set
+     * Descricao: Chave de acesso da NF-e emitida pelo Tomador
+     * <b>Obrigatório</b>
+     * Tamanho: 474
+     * @param 
      */
     public void setRefNFe(String refNFe) {
         this.refNFe = refNFe;
     }
 
     /**
-     * @return the refNF
+     * Descricao: Informação da NF ou CT emitido pelo Tomador
+     * <b>Obrigatório</b>
+     * Tamanho: 474
+     * @param 
      */
-    public refNF getRefNF() {
-        return refNF;
-    }
-
-    /**
-     * @param refNF the refNF to set
-     */
-    public void setRefNF(refNF refNF) {
+    public void setRefNF(br.com.moveti.erpmove.transporte.cte.xml.refNF refNF) {
         this.refNF = refNF;
     }
 
     /**
-     * @return the refCte
-     */
-    public String getRefCte() {
-        return refCte;
-    }
-
-    /**
-     * @param refCte the refCte to set
+     * Descricao: Chave de acesso do CT-e emitido pelo Tomador
+     * <b>Obrigatório</b>
+     * Tamanho: 474
+     * @param 
      */
     public void setRefCte(String refCte) {
         this.refCte = refCte;
     }
-    
+
+    public String getRefCte() {
+        return refCte;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.refNF getRefNF() {
+        return refNF;
+    }
+
+    public String getRefNFe() {
+        return refNFe;
+    }
 }

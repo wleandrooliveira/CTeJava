@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("infCteAnu")
 public class infCteAnu {
@@ -17,32 +17,6 @@ public class infCteAnu {
     @XStreamAlias("dEmi")
     private String dEmi;
 
-    /**
-     * @return the chCte
-     */
-    public String getChCte() {
-        return chCte;
-    }
-
-    /**
-     * @param chCte the chCte to set
-     */
-    public void setChCte(String chCte) {
-        this.chCte = chCte;
-    }
-
-    /**
-     * @return the dEmi
-     */
-    public String getdEmi() {
-        return dEmi;
-    }
-
-    /**
-     * @param dEmi the dEmi to set
-     */
-    public void setdEmi(String dEmi) {
-        this.dEmi = dEmi;
-    }
+    
     
 }

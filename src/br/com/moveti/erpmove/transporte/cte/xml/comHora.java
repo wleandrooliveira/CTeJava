@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Entrega com hora definida - obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("comHora")
 public class comHora {
@@ -17,31 +17,5 @@ public class comHora {
     @XStreamAlias("hProg")
     private String hProg;
 
-    /**
-     * @return the tpHor
-     */
-    public String getTpHor() {
-        return tpHor;
-    }
-
-    /**
-     * @param tpHor the tpHor to set
-     */
-    public void setTpHor(String tpHor) {
-        this.tpHor = tpHor;
-    }
-
-    /**
-     * @return the hProg
-     */
-    public String gethProg() {
-        return hProg;
-    }
-
-    /**
-     * @param hProg the hProg to set
-     */
-    public void sethProg(String hProg) {
-        this.hProg = hProg;
-    }
+    
 }

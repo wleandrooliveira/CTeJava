@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("tarifa")
 public class tarifa {
@@ -19,46 +19,6 @@ public class tarifa {
     @XStreamAlias("vTar")
     private String vTar;
 
-    /**
-     * @return the CL
-     */
-    public String getCL() {
-        return CL;
-    }
-
-    /**
-     * @param CL the CL to set
-     */
-    public void setCL(String CL) {
-        this.CL = CL;
-    }
-
-    /**
-     * @return the cTar
-     */
-    public String getcTar() {
-        return cTar;
-    }
-
-    /**
-     * @param cTar the cTar to set
-     */
-    public void setcTar(String cTar) {
-        this.cTar = cTar;
-    }
-
-    /**
-     * @return the vTar
-     */
-    public String getvTar() {
-        return vTar;
-    }
-
-    /**
-     * @param vTar the vTar to set
-     */
-    public void setvTar(String vTar) {
-        this.vTar = vTar;
-    }
+    
     
 }

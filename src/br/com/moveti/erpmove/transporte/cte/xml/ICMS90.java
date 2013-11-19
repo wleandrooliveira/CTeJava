@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("ICMS90")
 public class ICMS90 {
@@ -24,83 +24,5 @@ public class ICMS90 {
     private String pICMSST;
     private String vICMSST;
 
-    public String getOrig() {
-        return orig;
-    }
-
-    public void setOrig(String orig) {
-        this.orig = orig;
-    }
-
-    public String getCST() {
-        return CST;
-    }
-
-    public void setCST(String CST) {
-        this.CST = CST;
-    }
-
-    public String getModBC() {
-        return modBC;
-    }
-
-    public void setModBC(String modBC) {
-        this.modBC = modBC;
-    }
-
-    public String getvBC() {
-        return vBC;
-    }
-
-    public void setvBC(String vBC) {
-        this.vBC = vBC;
-    }
-
-    public String getpICMS() {
-        return pICMS;
-    }
-
-    public void setpICMS(String pICMS) {
-        this.pICMS = pICMS;
-    }
-
-    public String getvICMS() {
-        return vICMS;
-    }
-
-    public void setvICMS(String vICMS) {
-        this.vICMS = vICMS;
-    }
-
-    public String getModBCST() {
-        return modBCST;
-    }
-
-    public void setModBCST(String modBCST) {
-        this.modBCST = modBCST;
-    }
-
-    public String getvBCST() {
-        return vBCST;
-    }
-
-    public void setvBCST(String vBCST) {
-        this.vBCST = vBCST;
-    }
-
-    public String getpICMSST() {
-        return pICMSST;
-    }
-
-    public void setpICMSST(String pICMSST) {
-        this.pICMSST = pICMSST;
-    }
-
-    public String getvICMSST() {
-        return vICMSST;
-    }
-
-    public void setvICMSST(String vICMSST) {
-        this.vICMSST = vICMSST;
-    }
+  
 }

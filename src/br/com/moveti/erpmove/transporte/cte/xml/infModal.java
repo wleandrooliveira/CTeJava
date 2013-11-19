@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Informações do modal - Obrigatório [1-1]
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("infModal")
 public class infModal {
@@ -16,19 +16,5 @@ public class infModal {
     private String versaoModal;    
     private rodo rodo = new rodo();
 
-    public String getVersaoModal() {
-        return versaoModal;
-    }
-
-    public void setVersaoModal(String versaoModal) {
-        this.versaoModal = versaoModal;
-    }
-
-    public rodo getRodo() {
-        return rodo;
-    }
-
-    public void setRodo(rodo rodo) {
-        this.rodo = rodo;
-    }
+    
 }

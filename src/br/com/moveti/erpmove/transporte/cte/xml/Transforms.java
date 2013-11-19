@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("Transforms")
 public class Transforms {
@@ -19,13 +19,7 @@ public class Transforms {
     @XStreamImplicit(itemFieldName = "Transform")
     List<Transform> Transform = new ArrayList<Transform>();
 
-    public List<Transform> getTransform() {
-        return Transform;
-    }
-
-    public void setTransform(List<Transform> Transform) {
-        this.Transform = Transform;
-    }
+    
    
         
 }

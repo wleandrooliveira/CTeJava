@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Valores da Prestação de Serviço
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("vPrest")
 public class vPrest {
@@ -22,31 +22,5 @@ public class vPrest {
       @XStreamImplicit(itemFieldName = "Comp")
     private List<Comp> Comp = new ArrayList<Comp>();  
 
-    /**
-     * @return the vTPrest
-     */
-    public String getvTPrest() {
-        return vTPrest;
-    }
-
-    /**
-     * @param vTPrest the vTPrest to set
-     */
-    public void setvTPrest(String vTPrest) {
-        this.vTPrest = vTPrest;
-    }
-
-    /**
-     * @return the vRec
-     */
-    public String getvRec() {
-        return vRec;
-    }
-
-    /**
-     * @param vRec the vRec to set
-     */
-    public void setvRec(String vRec) {
-        this.vRec = vRec;
-    }
+    
 }

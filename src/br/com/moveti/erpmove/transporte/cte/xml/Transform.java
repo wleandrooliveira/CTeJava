@@ -8,18 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("Transform")
 public class Transform {
 
     String Algorithm;
 
-    public String getAlgorithm() {
-        return Algorithm;
-    }
-
-    public void setAlgorithm(String Algorithm) {
-        this.Algorithm = Algorithm;
-    }
+    
 }

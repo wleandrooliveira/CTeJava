@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Componentes do Valor da Prestação
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("Comp")
 public class Comp {
@@ -17,31 +17,5 @@ public class Comp {
     @XStreamAlias("vComp")
     private String vComp;
 
-    /**
-     * @return the xNome
-     */
-    public String getxNome() {
-        return xNome;
-    }
-
-    /**
-     * @param xNome the xNome to set
-     */
-    public void setxNome(String xNome) {
-        this.xNome = xNome;
-    }
-
-    /**
-     * @return the vComp
-     */
-    public String getvComp() {
-        return vComp;
-    }
-
-    /**
-     * @param vComp the vComp to set
-     */
-    public void setvComp(String vComp) {
-        this.vComp = vComp;
-    }
+   
 }

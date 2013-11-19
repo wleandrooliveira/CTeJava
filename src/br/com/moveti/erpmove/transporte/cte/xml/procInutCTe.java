@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("procInutCTe")
 public class procInutCTe {
@@ -17,45 +17,5 @@ public class procInutCTe {
     private inutCTe inutCTe = new inutCTe();
     private retInutCTe retInutCTe = new retInutCTe();
 
-    /**
-     * @return the versao
-     */
-    public String getVersao() {
-        return versao;
-    }
-
-    /**
-     * @param versao the versao to set
-     */
-    public void setVersao(String versao) {
-        this.versao = versao;
-    }
-
-    /**
-     * @return the inutCTe
-     */
-    public inutCTe getInutCTe() {
-        return inutCTe;
-    }
-
-    /**
-     * @param inutCTe the inutCTe to set
-     */
-    public void setInutCTe(inutCTe inutCTe) {
-        this.inutCTe = inutCTe;
-    }
-
-    /**
-     * @return the retInutCTe
-     */
-    public retInutCTe getRetInutCTe() {
-        return retInutCTe;
-    }
-
-    /**
-     * @param retInutCTe the retInutCTe to set
-     */
-    public void setRetInutCTe(retInutCTe retInutCTe) {
-        this.retInutCTe = retInutCTe;
-    }
+   
 }

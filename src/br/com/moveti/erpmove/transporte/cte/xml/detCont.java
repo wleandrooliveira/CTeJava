@@ -8,25 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("detCont")
 public class detCont {
     @XStreamAlias("nCont")    
     private String nCont;
 
-    /**
-     * @return the nCont
-     */
-    public String getnCont() {
-        return nCont;
-    }
-
-    /**
-     * @param nCont the nCont to set
-     */
-    public void setnCont(String nCont) {
-        this.nCont = nCont;
-    }
     
 }

@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("consStatServCte")
 public class consStatServCte {
@@ -19,45 +19,5 @@ public class consStatServCte {
     @XStreamAlias("xServ")
     private String xServ;
 
-    /**
-     * @return the versao
-     */
-    public String getVersao() {
-        return versao;
-    }
-
-    /**
-     * @param versao the versao to set
-     */
-    public void setVersao(String versao) {
-        this.versao = versao;
-    }
-
-    /**
-     * @return the tpAmb
-     */
-    public String getTpAmb() {
-        return tpAmb;
-    }
-
-    /**
-     * @param tpAmb the tpAmb to set
-     */
-    public void setTpAmb(String tpAmb) {
-        this.tpAmb = tpAmb;
-    }
-
-    /**
-     * @return the xServ
-     */
-    public String getxServ() {
-        return xServ;
-    }
-
-    /**
-     * @param xServ the xServ to set
-     */
-    public void setxServ(String xServ) {
-        this.xServ = xServ;
-    }
+    
 }

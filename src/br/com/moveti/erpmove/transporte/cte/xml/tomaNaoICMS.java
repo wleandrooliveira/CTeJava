@@ -8,24 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Tomador não é contribuinte do ICMS
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("tomaNaoICMS")
 public class tomaNaoICMS {
     @XStreamAlias("refCteAnu")
     private String refCteAnu;
 
-    /**
-     * @return the refCteAnu
-     */
-    public String getRefCteAnu() {
-        return refCteAnu;
-    }
-
-    /**
-     * @param refCteAnu the refCteAnu to set
-     */
-    public void setRefCteAnu(String refCteAnu) {
-        this.refCteAnu = refCteAnu;
-    }
+   
 }

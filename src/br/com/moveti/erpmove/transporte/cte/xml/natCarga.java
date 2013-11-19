@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("natCarga")
 public class natCarga {
@@ -19,46 +19,5 @@ public class natCarga {
     @XStreamAlias("cIMP")
     private String cIMP;
 
-    /**
-     * @return the xDime
-     */
-    public String getxDime() {
-        return xDime;
-    }
-
-    /**
-     * @param xDime the xDime to set
-     */
-    public void setxDime(String xDime) {
-        this.xDime = xDime;
-    }
-
-    /**
-     * @return the cInfManu
-     */
-    public String getcInfManu() {
-        return cInfManu;
-    }
-
-    /**
-     * @param cInfManu the cInfManu to set
-     */
-    public void setcInfManu(String cInfManu) {
-        this.cInfManu = cInfManu;
-    }
-
-    /**
-     * @return the cIMP
-     */
-    public String getcIMP() {
-        return cIMP;
-    }
-
-    /**
-     * @param cIMP the cIMP to set
-     */
-    public void setcIMP(String cIMP) {
-        this.cIMP = cIMP;
-    }
     
 }

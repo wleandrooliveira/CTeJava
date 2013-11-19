@@ -8,24 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Entrega sem hora definida - obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("semHora")
 public class semHora {
     @XStreamAlias("tpHor")
     private String tpHor;
 
-    /**
-     * @return the tpHor
-     */
-    public String getTpHor() {
-        return tpHor;
-    }
-
-    /**
-     * @param tpHor the tpHor to set
-     */
-    public void setTpHor(String tpHor) {
-        this.tpHor = tpHor;
-    }
+   
 }

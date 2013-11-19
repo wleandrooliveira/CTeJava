@@ -8,25 +8,13 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("ferrov")
 public class ferrov {
     @XStreamAlias("tpTraf")
     private String tpTraf;
 
-    /**
-     * @return the tpTraf
-     */
-    public String getTpTraf() {
-        return tpTraf;
-    }
-
-    /**
-     * @param tpTraf the tpTraf to set
-     */
-    public void setTpTraf(String tpTraf) {
-        this.tpTraf = tpTraf;
-    }
+    
     
 }

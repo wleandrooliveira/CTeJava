@@ -7,11 +7,12 @@ package br.com.moveti.erpmove.transporte.cte.xml;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
- *
- * @author Jéssica
+ * Dados da fatura
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("fat")
 public class fat {
+
     @XStreamAlias("nFat")
     private String nFat;
     @XStreamAlias("vOrig")
@@ -22,58 +23,60 @@ public class fat {
     private String vLiq;
 
     /**
-     * @return the nFat
-     */
-    public String getnFat() {
-        return nFat;
-    }
-
-    /**
-     * @param nFat the nFat to set
+     * Descricao: Número da fatura
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setnFat(String nFat) {
         this.nFat = nFat;
     }
 
     /**
-     * @return the vOrig
-     */
-    public String getvOrig() {
-        return vOrig;
-    }
-
-    /**
-     * @param vOrig the vOrig to set
+     * Descricao: Valor original da fatura
+     * Observacao: 15 posições, sendo 13 inteiras e 2 decimais.
+     * <b>Obrigatório</b>
+     * Tamanho: 13, 2
+     * @param 
      */
     public void setvOrig(String vOrig) {
         this.vOrig = vOrig;
     }
 
     /**
-     * @return the vDesc
-     */
-    public String getvDesc() {
-        return vDesc;
-    }
-
-    /**
-     * @param vDesc the vDesc to set
+     * Descricao: Valor do desconto da fatura
+     * Observacao: 15 posições, sendo 13 inteiras e 2 decimais.
+     * <b>Obrigatório</b>
+     * Tamanho: 13, 2
+     * @param 
      */
     public void setvDesc(String vDesc) {
         this.vDesc = vDesc;
     }
 
     /**
-     * @return the vLiq
+     * Descricao: Valor líquido da fatura
+     * Observacao: 15 posições, sendo 13 inteiras e 2 decimais.
+     * <b>Obrigatório</b>
+     * Tamanho: 13, 2
+     * @param 
      */
+    public void setvLiq(String vLiq) {
+        this.vLiq = vLiq;
+    }
+
+    public String getnFat() {
+        return nFat;
+    }
+
+    public String getvDesc() {
+        return vDesc;
+    }
+
     public String getvLiq() {
         return vLiq;
     }
 
-    /**
-     * @param vLiq the vLiq to set
-     */
-    public void setvLiq(String vLiq) {
-        this.vLiq = vLiq;
+    public String getvOrig() {
+        return vOrig;
     }
 }

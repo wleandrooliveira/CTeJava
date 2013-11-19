@@ -31,12 +31,58 @@ file
 
 
 
-
+delete
 
 de0f50730166e715153f85878fdd409c
 2013-10-07T18:00:41.274600Z
 9
 fernando
+
+ConhecimentoTransporte.java
+file
+
+
+
+add
+
+2a1ce8b7c6b8a809cd5ad3575356ce78
+
+
+
+
+
+
+
+
+
+
+
+copied
+svn+ssh://192.168.0.101/SVN/mvtTransporte/src/br/com/moveti/erpmove/transporte/controller/conhecimentoTransporteEletronico.java
+9
+
+ConhecimentoTransporteController.java
+file
+
+
+
+add
+
+de0f50730166e715153f85878fdd409c
+
+
+
+
+
+
+
+
+
+
+
+copied
+svn+ssh://192.168.0.101/SVN/mvtTransporte/src/br/com/moveti/erpmove/transporte/controller/CTeController.java
+9
 
 SocketFactoryDinamico.java
 file
@@ -111,7 +157,7 @@ file
 
 
 
-
+delete
 2013-04-23T19:17:26.090000Z
 2a1ce8b7c6b8a809cd5ad3575356ce78
 2013-02-14T11:16:31.382730Z

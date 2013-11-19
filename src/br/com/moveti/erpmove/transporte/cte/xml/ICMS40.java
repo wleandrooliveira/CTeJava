@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("ICMS40")
 public class ICMS40 {
@@ -16,19 +16,5 @@ public class ICMS40 {
     private String orig;
     private String CST;
 
-    public String getOrig() {
-        return orig;
-    }
-
-    public void setOrig(String orig) {
-        this.orig = orig;
-    }
-
-    public String getCST() {
-        return CST;
-    }
-
-    public void setCST(String CST) {
-        this.CST = CST;
-    }
+    
 }

@@ -8,15 +8,15 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("infCte")
 public class infCte {
+
     @XStreamAlias("versao")
     private String versao;
     @XStreamAlias("Id")
     private String Id;
-    
     private ide ide = new ide();
     private compl compl = new compl();
     private emit emit = new emit();
@@ -24,29 +24,18 @@ public class infCte {
     private exped exped = new exped();
     private receb receb = new receb();
     private dest dest = new dest();
+    private vPrest vPrest = new vPrest();
     private imp imp = new imp();
+    
     private infCTeNorm infCTeNorm = new infCTeNorm();
     private infCteComp infCteComp = new infCteComp();
     private infCteAnu infCteAnu = new infCteAnu();
-    private vPrest vPrest = new vPrest();
     
-    
-    
-    @XStreamAlias("fluxo")
-    private String fluxo;
-    @XStreamAlias("idTrem")
-    private String idTrem;
-    @XStreamAlias("vFrete")
-    private String vFrete;
 
     /**
-     * @return the versao
-     */
-    public String getVersao() {
-        return versao;
-    }
-
-    /**
+     * Descricao: Versão do leiaute
+     * Observacao: Ex: "2.00"
+     * <b>Obrigatório</b>
      * @param versao the versao to set
      */
     public void setVersao(String versao) {
@@ -54,13 +43,10 @@ public class infCte {
     }
 
     /**
-     * @return the Id
-     */
-    public String getId() {
-        return Id;
-    }
-
-    /**
+     * Descricao: Identificador da tag a ser assinada
+     * Observacao: Informar a chave de acesso do CT-e e precedida do literal "CTe"
+     * <b>Obrigatório</b>
+     * Tamanho: 47
      * @param Id the Id to set
      */
     public void setId(String Id) {
@@ -68,206 +54,163 @@ public class infCte {
     }
 
     /**
-     * @return the fluxo
+     * Descricao: Identificação do CT-e
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public String getFluxo() {
-        return fluxo;
-    }
-
-    /**
-     * @param fluxo the fluxo to set
-     */
-    public void setFluxo(String fluxo) {
-        this.fluxo = fluxo;
-    }
-
-    /**
-     * @return the idTrem
-     */
-    public String getIdTrem() {
-        return idTrem;
-    }
-
-    /**
-     * @param idTrem the idTrem to set
-     */
-    public void setIdTrem(String idTrem) {
-        this.idTrem = idTrem;
-    }
-
-    /**
-     * @return the vFrete
-     */
-    public String getvFrete() {
-        return vFrete;
-    }
-
-    /**
-     * @param vFrete the vFrete to set
-     */
-    public void setvFrete(String vFrete) {
-        this.vFrete = vFrete;
-    }
-
-    /**
-     * @return the ide
-     */
-    public ide getIde() {
-        return ide;
-    }
-
-    /**
-     * @param ide the ide to set
-     */
-    public void setIde(ide ide) {
+    public void setIde(br.com.moveti.erpmove.transporte.cte.xml.ide ide) {
         this.ide = ide;
     }
 
     /**
-     * @return the compl
+     * Descricao: Dados complementares do CT-e para fins operacionais ou comerciais
+     * @param 
      */
-    public compl getCompl() {
-        return compl;
-    }
-
-    /**
-     * @param compl the compl to set
-     */
-    public void setCompl(compl compl) {
+    public void setCompl(br.com.moveti.erpmove.transporte.cte.xml.compl compl) {
         this.compl = compl;
     }
 
     /**
-     * @return the emit
+     * Descricao: Identificação do Emitente do CT-e
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public emit getEmit() {
-        return emit;
-    }
-
-    /**
-     * @param emit the emit to set
-     */
-    public void setEmit(emit emit) {
+    public void setEmit(br.com.moveti.erpmove.transporte.cte.xml.emit emit) {
         this.emit = emit;
     }
 
     /**
-     * @return the rem
+     * Descricao: Informações do Remetente das mercadorias transportadas pelo CT-e
+     * Observacao: Poderá não ser informado para os CTe de redespacho intermediário. Nos demais casos deverá sempre ser informado.
+     * @param 
      */
-    public rem getRem() {
-        return rem;
-    }
-
-    /**
-     * @param rem the rem to set
-     */
-    public void setRem(rem rem) {
+    public void setRem(br.com.moveti.erpmove.transporte.cte.xml.rem rem) {
         this.rem = rem;
     }
 
     /**
-     * @return the exped
+     * Descricao: Informações do Expedidor da Carga
+     * @param 
      */
-    public exped getExped() {
-        return exped;
-    }
-
-    /**
-     * @param exped the exped to set
-     */
-    public void setExped(exped exped) {
+    public void setExped(br.com.moveti.erpmove.transporte.cte.xml.exped exped) {
         this.exped = exped;
     }
 
     /**
-     * @return the receb
+     * Descricao: Informações do Recebedor da Carga
+     * @param 
      */
-    public receb getReceb() {
-        return receb;
-    }
-
-    /**
-     * @param receb the receb to set
-     */
-    public void setReceb(receb receb) {
+    public void setReceb(br.com.moveti.erpmove.transporte.cte.xml.receb receb) {
         this.receb = receb;
     }
 
     /**
-     * @return the dest
+     * Descricao: Informações do Destinatário do CT-e
+     * Observacao: Só pode ser omitido em caso de redespacho intermediário
+     * @param 
      */
-    public dest getDest() {
-        return dest;
-    }
-
-    /**
-     * @param dest the dest to set
-     */
-    public void setDest(dest dest) {
+    public void setDest(br.com.moveti.erpmove.transporte.cte.xml.dest dest) {
         this.dest = dest;
     }
 
     /**
-     * @return the imp
+     * Descricao: Valores da Prestação de Serviço
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public imp getImp() {
-        return imp;
+    public void setvPrest(br.com.moveti.erpmove.transporte.cte.xml.vPrest vPrest) {
+        this.vPrest = vPrest;
     }
 
     /**
-     * @param imp the imp to set
+     * Descricao: Informações relativas aos Impostos
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public void setImp(imp imp) {
+    public void setImp(br.com.moveti.erpmove.transporte.cte.xml.imp imp) {
         this.imp = imp;
     }
 
     /**
-     * @return the infCTeNorm
+     * Descricao: Grupo de informações do CT-e Normal e Substituto
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public infCTeNorm getInfCTeNorm() {
-        return infCTeNorm;
-    }
-
-    /**
-     * @param infCTeNorm the infCTeNorm to set
-     */
-    public void setInfCTeNorm(infCTeNorm infCTeNorm) {
+    public void setInfCTeNorm(br.com.moveti.erpmove.transporte.cte.xml.infCTeNorm infCTeNorm) {
         this.infCTeNorm = infCTeNorm;
     }
 
     /**
-     * @return the infCteComp
+     * Descricao: Detalhamento do CT-e complementado
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public infCteComp getInfCteComp() {
-        return infCteComp;
-    }
-
-    /**
-     * @param infCteComp the infCteComp to set
-     */
-    public void setInfCteComp(infCteComp infCteComp) {
+    public void setInfCteComp(br.com.moveti.erpmove.transporte.cte.xml.infCteComp infCteComp) {
         this.infCteComp = infCteComp;
     }
 
     /**
-     * @return the infCteAnu
+     * Descricao: Detalhamento do CT-e do tipo Anulação
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public infCteAnu getInfCteAnu() {
-        return infCteAnu;
-    }
-
-    /**
-     * @param infCteAnu the infCteAnu to set
-     */
-    public void setInfCteAnu(infCteAnu infCteAnu) {
+    public void setInfCteAnu(br.com.moveti.erpmove.transporte.cte.xml.infCteAnu infCteAnu) {
         this.infCteAnu = infCteAnu;
     }
 
-    public vPrest getvPrest() {
+    public String getId() {
+        return Id;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.compl getCompl() {
+        return compl;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.dest getDest() {
+        return dest;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.emit getEmit() {
+        return emit;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.exped getExped() {
+        return exped;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.ide getIde() {
+        return ide;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.imp getImp() {
+        return imp;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.infCTeNorm getInfCTeNorm() {
+        return infCTeNorm;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.infCteAnu getInfCteAnu() {
+        return infCteAnu;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.infCteComp getInfCteComp() {
+        return infCteComp;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.receb getReceb() {
+        return receb;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.rem getRem() {
+        return rem;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.vPrest getvPrest() {
         return vPrest;
     }
 
-    public void setvPrest(vPrest vPrest) {
-        this.vPrest = vPrest;
+    public String getVersao() {
+        return versao;
     }
 }

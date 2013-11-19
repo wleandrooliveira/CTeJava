@@ -7,11 +7,12 @@ package br.com.moveti.erpmove.transporte.cte.xml;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
- *
- * @author Jéssica
+ * Dados das duplicatas
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("dup")
 public class dup {
+
     @XStreamAlias("nDup")
     private String nDup;
     @XStreamAlias("dVenc")
@@ -20,45 +21,30 @@ public class dup {
     private String vDup;
 
     /**
-     * @return the nDup
-     */
-    public String getnDup() {
-        return nDup;
-    }
-
-    /**
-     * @param nDup the nDup to set
+     * Descricao: Número da duplicata
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setnDup(String nDup) {
         this.nDup = nDup;
     }
 
     /**
-     * @return the dVenc
-     */
-    public String getdVenc() {
-        return dVenc;
-    }
-
-    /**
-     * @param dVenc the dVenc to set
+     * Descricao: Data de vencimento da duplicata (AAAAMM-DD)
+     * Tamanho: 10
+     * @param 
      */
     public void setdVenc(String dVenc) {
         this.dVenc = dVenc;
     }
 
     /**
-     * @return the vDup
-     */
-    public String getvDup() {
-        return vDup;
-    }
-
-    /**
-     * @param vDup the vDup to set
+     * Descricao: Valor da duplicata
+     * Observacao: 15 posições, sendo 13 inteiras e 2 decimais.
+     * Tamanho: 13, 2
+     * @param 
      */
     public void setvDup(String vDup) {
         this.vDup = vDup;
     }
-    
 }

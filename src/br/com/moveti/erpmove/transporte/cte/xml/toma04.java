@@ -8,12 +8,14 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Indicador do "papel" do tomador do serviço no CT-e - Obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
+ * @version 1.0
  */
 @XStreamAlias("toma04")
 public class toma04 {
-    @XStreamAlias("toma")    
-    private String toma;
+
+    @XStreamAlias("toma")
+    private int toma;
     @XStreamAlias("CNPJ")
     private String CNPJ;
     @XStreamAlias("CPF")
@@ -25,118 +27,133 @@ public class toma04 {
     @XStreamAlias("xFant")
     private String xFant;
     @XStreamAlias("fone")
-    private String fone;
+    private int fone;
     private enderToma enderToma = new enderToma();
+    @XStreamAlias("email")
+    private String email;
 
     /**
-     * @return the toma
+     * Descricao: Tomador do Serviço
+     * Observacao: Preencher com: 4 - Outros Obs: Informar os dados cadastrais do tomador do serviço
+     * <b>Obrigatório</b>
+     * Tamanho: 1
+     * @param 
      */
-    public String getToma() {
-        return toma;
-    }
-
-    /**
-     * @param toma the toma to set
-     */
-    public void setToma(String toma) {
+    public void setToma(int toma) {
         this.toma = toma;
     }
 
     /**
-     * @return the CNPJ
-     */
-    public String getCNPJ() {
-        return CNPJ;
-    }
-
-    /**
-     * @param CNPJ the CNPJ to set
+     * Descricao: Número do CNPJ
+     * Observacao: Em caso de empresa não estabelecida no Brasil, será informado o CNPJ com zeros. Informar os zeros não significativos.
+     * <b>Obrigatório</b>
+     * Tamanho: 14
+     * @param 
      */
     public void setCNPJ(String CNPJ) {
         this.CNPJ = CNPJ;
     }
 
     /**
-     * @return the CPF
-     */
-    public String getCPF() {
-        return CPF;
-    }
-
-    /**
-     * @param CPF the CPF to set
+     * Descricao: Número do CPF
+     * Observacao: Informar os zeros não significativos
+     * <b>Obrigatório</b>
+     * Tamanho: 11
+     * @param 
      */
     public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
     /**
-     * @return the IE
-     */
-    public String getIE() {
-        return IE;
-    }
-
-    /**
-     * @param IE the IE to set
+     * Descricao: Inscrição Estadual
+     * Observacao: Informar a IE do tomador ou ISENTO se tomador é contribuinte do ICMS isento de inscrição no cadastro de contribuintes do ICMS. Caso o tomador não seja contribuinte do ICMS não informar o conteúdo.    
+     * Tamanho: 0 - 14
+     * @param 
      */
     public void setIE(String IE) {
         this.IE = IE;
     }
 
     /**
-     * @return the xNome
-     */
-    public String getxNome() {
-        return xNome;
-    }
-
-    /**
-     * @param xNome the xNome to set
+     * Descricao: Razão Social ou Nome
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setxNome(String xNome) {
         this.xNome = xNome;
     }
 
     /**
-     * @return the xFant
-     */
-    public String getxFant() {
-        return xFant;
-    }
-
-    /**
-     * @param xFant the xFant to set
+     * Descricao: Nome Fantasia
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setxFant(String xFant) {
         this.xFant = xFant;
     }
 
     /**
-     * @return the fone
+     * Descricao: Telefone
+     * Tamanho: 6 - 14
+     * @param 
      */
-    public String getFone() {
-        return fone;
-    }
-
-    /**
-     * @param fone the fone to set
-     */
-    public void setFone(String fone) {
+    public void setFone(int fone) {
         this.fone = fone;
     }
 
     /**
-     * @return the enderToma
+     * Descricao: Dados do endereço
+     * <b>Obrigatório</b>
+     * @param 
      */
-    public enderToma getEnderToma() {
-        return enderToma;
+    public void setEnderToma(br.com.moveti.erpmove.transporte.cte.xml.enderToma enderToma) {
+        this.enderToma = enderToma;
     }
 
     /**
-     * @param enderToma the enderToma to set
+     * Descricao: Endereço de email
+     * Tamanho: 1 - 60
+     * @param 
      */
-    public void setEnderToma(enderToma enderToma) {
-        this.enderToma = enderToma;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCNPJ() {
+        return CNPJ;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public String getIE() {
+        return IE;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.enderToma getEnderToma() {
+        return enderToma;
+    }
+
+    public int getFone() {
+        return fone;
+    }
+
+    public int getToma() {
+        return toma;
+    }
+
+    public String getxFant() {
+        return xFant;
+    }
+
+    public String getxNome() {
+        return xNome;
     }
 }

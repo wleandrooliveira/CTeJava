@@ -8,12 +8,15 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("refNF")
 public class refNF {
+
     @XStreamAlias("CNPJ")
     private String CNPJ;
+    @XStreamAlias("CPF")
+    private String CPF;
     @XStreamAlias("mod")
     private String mod;
     @XStreamAlias("serie")
@@ -28,101 +31,116 @@ public class refNF {
     private String dEmi;
 
     /**
-     * @return the CNPJ
-     */
-    public String getCNPJ() {
-        return CNPJ;
-    }
-
-    /**
-     * @param CNPJ the CNPJ to set
+     * Descricao: CNPJ do Emitente
+     * Observacao: Informar o CNPJ do emitente do Documento Fiscal
+     * <b>Obrigatório</b>
+     * Tamanho: 14
+     * @param 
      */
     public void setCNPJ(String CNPJ) {
         this.CNPJ = CNPJ;
     }
 
     /**
-     * @return the mod
+     * Descricao: Número do CPF
+     * Observacao: Informar o CPF do emitente do documento fiscal
+     * <b>Obrigatório</b>
+     * Tamanho: 11
+     * @param 
      */
-    public String getMod() {
-        return mod;
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 
     /**
-     * @param mod the mod to set
+     * Descricao: Modelo do Documento Fiscal
+     * <b>Obrigatório</b>
+     * Tamanho: 2
+     * @param 
      */
     public void setMod(String mod) {
         this.mod = mod;
     }
 
     /**
-     * @return the serie
-     */
-    public String getSerie() {
-        return serie;
-    }
-
-    /**
-     * @param serie the serie to set
+     * Descricao: Serie do documento fiscal
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 3
+     * @param 
      */
     public void setSerie(String serie) {
         this.serie = serie;
     }
 
     /**
-     * @return the subserie
-     */
-    public String getSubserie() {
-        return subserie;
-    }
-
-    /**
-     * @param subserie the subserie to set
+     * Subserie do documento fiscal
+     * Tamanho: 1 - 3
+     * @param 
      */
     public void setSubserie(String subserie) {
         this.subserie = subserie;
     }
 
     /**
-     * @return the nro
-     */
-    public String getNro() {
-        return nro;
-    }
-
-    /**
-     * @param nro the nro to set
+     * Descricao: Número do documento fiscal
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 6
+     * @param 
      */
     public void setNro(String nro) {
         this.nro = nro;
     }
 
     /**
-     * @return the valor
-     */
-    public String getValor() {
-        return valor;
-    }
-
-    /**
-     * @param valor the valor to set
+     * Descricao: Valor do documento fiscal
+     * Observacao: 15 posições, sendo 13 inteiras e 2 decimais.
+     * <b>Obrigatório</b>
+     * Tamanho: 13, 2
+     * @param 
      */
     public void setValor(String valor) {
         this.valor = valor;
     }
 
     /**
-     * @return the dEmi
-     */
-    public String getdEmi() {
-        return dEmi;
-    }
-
-    /**
-     * @param dEmi the dEmi to set
+     * Descricao: Data de emissão do documento fiscal
+     * <b>Obrigatório</b>
+     * Tamanho: 10
+     * @param 
      */
     public void setdEmi(String dEmi) {
         this.dEmi = dEmi;
     }
-    
+
+    public String getCNPJ() {
+        return CNPJ;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public String getdEmi() {
+        return dEmi;
+    }
+
+    public String getMod() {
+        return mod;
+    }
+
+    public String getNro() {
+        return nro;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public String getSubserie() {
+        return subserie;
+    }
+
+    public String getValor() {
+        return valor;
+    }
 }

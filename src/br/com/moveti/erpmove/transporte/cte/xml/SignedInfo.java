@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("SignedInfo")
 public class SignedInfo {
@@ -17,27 +17,5 @@ public class SignedInfo {
     private SignatureMethod SignatureMethod;
     private Reference Reference;
 
-    public CanonicalizationMethod getCanonicalizationMethod() {
-        return CanonicalizationMethod;
-    }
-
-    public void setCanonicalizationMethod(CanonicalizationMethod CanonicalizationMethod) {
-        this.CanonicalizationMethod = CanonicalizationMethod;
-    }
-
-    public SignatureMethod getSignatureMethod() {
-        return SignatureMethod;
-    }
-
-    public void setSignatureMethod(SignatureMethod SignatureMethod) {
-        this.SignatureMethod = SignatureMethod;
-    }
-
-    public Reference getReference() {
-        return Reference;
-    }
-
-    public void setReference(Reference Reference) {
-        this.Reference = Reference;
-    }
+    
 }

@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("consReciCTe")
 public class consReciCTe {
@@ -19,45 +19,5 @@ public class consReciCTe {
     @XStreamAlias("nRec")
     private String nRec;
 
-    /**
-     * @return the versao
-     */
-    public String getVersao() {
-        return versao;
-    }
-
-    /**
-     * @param versao the versao to set
-     */
-    public void setVersao(String versao) {
-        this.versao = versao;
-    }
-
-    /**
-     * @return the tbAmb
-     */
-    public String getTbAmb() {
-        return tbAmb;
-    }
-
-    /**
-     * @param tbAmb the tbAmb to set
-     */
-    public void setTbAmb(String tbAmb) {
-        this.tbAmb = tbAmb;
-    }
-
-    /**
-     * @return the nRec
-     */
-    public String getnRec() {
-        return nRec;
-    }
-
-    /**
-     * @param nRec the nRec to set
-     */
-    public void setnRec(String nRec) {
-        this.nRec = nRec;
-    }
+    
 }

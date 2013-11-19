@@ -11,7 +11,7 @@ svn+ssh://192.168.0.101/SVN/mvtTransporte
 1
 jessica
 has-props
-
+has-prop-mods
 svn:special svn:externals svn:needs-lock
 
 

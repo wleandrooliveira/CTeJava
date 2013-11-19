@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 public class conhecimento_transporte_notas {
     

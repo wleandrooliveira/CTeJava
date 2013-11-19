@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("ICMSComp")
 public class ICMSComp {
@@ -20,101 +20,5 @@ public class ICMSComp {
     private ICMSOutraUF ICMSOutraUF = new ICMSOutraUF();
     private ICMSSN ICMSSN = new ICMSSN();
 
-    /**
-     * @return the ICMS00
-     */
-    public ICMS00 getICMS00() {
-        return ICMS00;
-    }
-
-    /**
-     * @param ICMS00 the ICMS00 to set
-     */
-    public void setICMS00(ICMS00 ICMS00) {
-        this.ICMS00 = ICMS00;
-    }
-
-    /**
-     * @return the ICMS20
-     */
-    public ICMS20 getICMS20() {
-        return ICMS20;
-    }
-
-    /**
-     * @param ICMS20 the ICMS20 to set
-     */
-    public void setICMS20(ICMS20 ICMS20) {
-        this.ICMS20 = ICMS20;
-    }
-
-    /**
-     * @return the ICMS45
-     */
-    public ICMS45 getICMS45() {
-        return ICMS45;
-    }
-
-    /**
-     * @param ICMS45 the ICMS45 to set
-     */
-    public void setICMS45(ICMS45 ICMS45) {
-        this.ICMS45 = ICMS45;
-    }
-
-    /**
-     * @return the ICMS60
-     */
-    public ICMS60 getICMS60() {
-        return ICMS60;
-    }
-
-    /**
-     * @param ICMS60 the ICMS60 to set
-     */
-    public void setICMS60(ICMS60 ICMS60) {
-        this.ICMS60 = ICMS60;
-    }
-
-    /**
-     * @return the ICMS90
-     */
-    public ICMS90 getICMS90() {
-        return ICMS90;
-    }
-
-    /**
-     * @param ICMS90 the ICMS90 to set
-     */
-    public void setICMS90(ICMS90 ICMS90) {
-        this.ICMS90 = ICMS90;
-    }
-
-    /**
-     * @return the ICMSOutraUF
-     */
-    public ICMSOutraUF getICMSOutraUF() {
-        return ICMSOutraUF;
-    }
-
-    /**
-     * @param ICMSOutraUF the ICMSOutraUF to set
-     */
-    public void setICMSOutraUF(ICMSOutraUF ICMSOutraUF) {
-        this.ICMSOutraUF = ICMSOutraUF;
-    }
-
-    /**
-     * @return the ICMSSN
-     */
-    public ICMSSN getICMSSN() {
-        return ICMSSN;
-    }
-
-    /**
-     * @param ICMSSN the ICMSSN to set
-     */
-    public void setICMSSN(ICMSSN ICMSSN) {
-        this.ICMSSN = ICMSSN;
-    }
+    
 }

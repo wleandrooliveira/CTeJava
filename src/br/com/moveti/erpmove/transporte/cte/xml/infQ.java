@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Informações de quantidades da Carga do CT-e - Obrigatório [1-n]
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("infQ")
 public class infQ {
@@ -19,45 +19,5 @@ public class infQ {
     @XStreamAlias("qCarga")
     private String qCarga;
 
-    /**
-     * @return the cUnid
-     */
-    public String getcUnid() {
-        return cUnid;
-    }
-
-    /**
-     * @param cUnid the cUnid to set
-     */
-    public void setcUnid(String cUnid) {
-        this.cUnid = cUnid;
-    }
-
-    /**
-     * @return the tpMed
-     */
-    public String getTpMed() {
-        return tpMed;
-    }
-
-    /**
-     * @param tpMed the tpMed to set
-     */
-    public void setTpMed(String tpMed) {
-        this.tpMed = tpMed;
-    }
-
-    /**
-     * @return the qCarga
-     */
-    public String getqCarga() {
-        return qCarga;
-    }
-
-    /**
-     * @param qCarga the qCarga to set
-     */
-    public void setqCarga(String qCarga) {
-        this.qCarga = qCarga;
-    }
+    
 }

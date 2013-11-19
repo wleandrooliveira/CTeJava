@@ -8,224 +8,170 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Dados do endereço do tomador - Obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("enderToma")
 public class enderToma {
-    @XStreamAlias("xLgr")    
+
+    @XStreamAlias("xLgr")
     private String xLgr;
     @XStreamAlias("nro")
     private String nro;
-    //NO
-    @XStreamAlias("xCpl")    
+    @XStreamAlias("xCpl")
     private String xCpl;
-    
-    @XStreamAlias("xBairro")   
+    @XStreamAlias("xBairro")
     private String xBairro;
     @XStreamAlias("cMun")
     private String cMun;
     @XStreamAlias("xMun")
     private String xMun;
-    //NO
-    @XStreamAlias("CEP")    
+    @XStreamAlias("CEP")
     private String CEP;
-    
     @XStreamAlias("UF")
     private String UF;
-    //NO
     @XStreamAlias("cPais")
     private String cPais;
-    //NO
     @XStreamAlias("xPais")
     private String xPais;
-    //NO
-    @XStreamAlias("email")
-    private String email;
-    
-    @XStreamAlias("dhCont")
-    private String dhCont;
-    @XStreamAlias("xJust")
-    private String xJust;
 
     /**
-     * @return the xLgr
-     */
-    public String getxLgr() {
-        return xLgr;
-    }
-
-    /**
-     * @param xLgr the xLgr to set
+     * Descricao: Logradouro
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 255
+     * @param 
      */
     public void setxLgr(String xLgr) {
         this.xLgr = xLgr;
     }
 
     /**
-     * @return the nro
-     */
-    public String getNro() {
-        return nro;
-    }
-
-    /**
-     * @param nro the nro to set
+     * Descricao: Número
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setNro(String nro) {
         this.nro = nro;
     }
 
     /**
-     * @return the xCpl
-     */
-    public String getxCpl() {
-        return xCpl;
-    }
-
-    /**
-     * @param xCpl the xCpl to set
+     * Descricao: Complemento
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setxCpl(String xCpl) {
         this.xCpl = xCpl;
     }
 
     /**
-     * @return the xBairro
-     */
-    public String getxBairro() {
-        return xBairro;
-    }
-
-    /**
-     * @param xBairro the xBairro to set
+     * Descricao: Bairro
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setxBairro(String xBairro) {
         this.xBairro = xBairro;
     }
 
     /**
-     * @return the cMun
-     */
-    public String getcMun() {
-        return cMun;
-    }
-
-    /**
-     * @param cMun the cMun to set
+     * Descricao: Código do município (utilizar a tabela do IBGE)
+     * Observacao: Informar 9999999 para operações com o exterior.
+     * <b>Obrigatório</b>
+     * Tamanho: 7
+     * @param 
      */
     public void setcMun(String cMun) {
         this.cMun = cMun;
     }
 
     /**
-     * @return the xMun
-     */
-    public String getxMun() {
-        return xMun;
-    }
-
-    /**
-     * @param xMun the xMun to set
+     * Descricao: Nome do município
+     * Observacao: Informar EXTERIOR para operações com o exterior.
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setxMun(String xMun) {
         this.xMun = xMun;
     }
 
     /**
-     * @return the CEP
-     */
-    public String getCEP() {
-        return CEP;
-    }
-
-    /**
-     * @param CEP the CEP to set
+     * Descricao: CEP
+     * Observacao: Informar os zeros não significativos
+     * Tamanho: 
+     * @param 
      */
     public void setCEP(String CEP) {
         this.CEP = CEP;
     }
 
     /**
-     * @return the UF
-     */
-    public String getUF() {
-        return UF;
-    }
-
-    /**
-     * @param UF the UF to set
+     * Descricao: Sigla da UF
+     * Observacao: Informar EX para operações com o exterior.
+     * <b>Obrigatório</b>
+     * Tamanho: 2
+     * @param 
      */
     public void setUF(String UF) {
         this.UF = UF;
     }
 
     /**
-     * @return the cPais
-     */
-    public String getcPais() {
-        return cPais;
-    }
-
-    /**
-     * @param cPais the cPais to set
+     * Descricao: Código do país
+     * Observacao: Utilizar a tabela do BACEN
+     * Tamanho: 1 - 4
+     * @param 
      */
     public void setcPais(String cPais) {
         this.cPais = cPais;
     }
 
     /**
-     * @return the xPais
-     */
-    public String getxPais() {
-        return xPais;
-    }
-
-    /**
-     * @param xPais the xPais to set
+     * Descricao: Nome do país
+     * Tamanho: 1 - 60
+     * @param 
      */
     public void setxPais(String xPais) {
         this.xPais = xPais;
     }
 
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
+    public String getCEP() {
+        return CEP;
     }
 
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
+    public String getUF() {
+        return UF;
     }
 
-    /**
-     * @return the dhCont
-     */
-    public String getDhCont() {
-        return dhCont;
+    public String getcMun() {
+        return cMun;
     }
 
-    /**
-     * @param dhCont the dhCont to set
-     */
-    public void setDhCont(String dhCont) {
-        this.dhCont = dhCont;
+    public String getcPais() {
+        return cPais;
     }
 
-    /**
-     * @return the xJust
-     */
-    public String getxJust() {
-        return xJust;
+    public String getNro() {
+        return nro;
     }
 
-    /**
-     * @param xJust the xJust to set
-     */
-    public void setxJust(String xJust) {
-        this.xJust = xJust;
+    public String getxBairro() {
+        return xBairro;
+    }
+
+    public String getxCpl() {
+        return xCpl;
+    }
+
+    public String getxLgr() {
+        return xLgr;
+    }
+
+    public String getxMun() {
+        return xMun;
+    }
+
+    public String getxPais() {
+        return xPais;
     }
 }

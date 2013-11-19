@@ -8,23 +8,11 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Rateio dos vagões - Não Obrigatório [0-n]
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("ratVag")
 public class ratVag {
     private ratNF ratNF = new ratNF();
 
-    /**
-     * @return the ratNF
-     */
-    public ratNF getRatNF() {
-        return ratNF;
-    }
-
-    /**
-     * @param ratNF the ratNF to set
-     */
-    public void setRatNF(ratNF ratNF) {
-        this.ratNF = ratNF;
-    }
+    
 }

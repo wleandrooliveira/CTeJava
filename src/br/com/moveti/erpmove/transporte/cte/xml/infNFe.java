@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Informações das NF-e - Obrigatório [1-n]
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("infNFe")
 public class infNFe {
@@ -20,31 +20,5 @@ public class infNFe {
     @XStreamAlias("PIN")
     private String PIN;
 
-    /**
-     * @return the Chave
-     */
-    public String getChave() {
-        return Chave;
-    }
-
-    /**
-     * @param Chave the Chave to set
-     */
-    public void setChave(String Chave) {
-        this.Chave = Chave;
-    }
-
-    /**
-     * @return the PIN
-     */
-    public String getPIN() {
-        return PIN;
-    }
-
-    /**
-     * @param PIN the PIN to set
-     */
-    public void setPIN(String PIN) {
-        this.PIN = PIN;
-    }
+    
 }

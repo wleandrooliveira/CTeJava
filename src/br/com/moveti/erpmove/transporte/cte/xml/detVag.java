@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 
 @XStreamAlias("detVag")
@@ -24,74 +24,5 @@ public class detVag {
     @XStreamAlias("pesoBC")
     private String pesoBC;
 
-    /**
-     * @return the nVag
-     */
-    public String getnVag() {
-        return nVag;
-    }
-
-    /**
-     * @param nVag the nVag to set
-     */
-    public void setnVag(String nVag) {
-        this.nVag = nVag;
-    }
-
-    /**
-     * @return the cap
-     */
-    public String getCap() {
-        return cap;
-    }
-
-    /**
-     * @param cap the cap to set
-     */
-    public void setCap(String cap) {
-        this.cap = cap;
-    }
-
-    /**
-     * @return the tpVag
-     */
-    public String getTpVag() {
-        return tpVag;
-    }
-
-    /**
-     * @param tpVag the tpVag to set
-     */
-    public void setTpVag(String tpVag) {
-        this.tpVag = tpVag;
-    }
-
-    /**
-     * @return the pesoR
-     */
-    public String getPesoR() {
-        return pesoR;
-    }
-
-    /**
-     * @param pesoR the pesoR to set
-     */
-    public void setPesoR(String pesoR) {
-        this.pesoR = pesoR;
-    }
-
-    /**
-     * @return the pesoBC
-     */
-    public String getPesoBC() {
-        return pesoBC;
-    }
-
-    /**
-     * @param pesoBC the pesoBC to set
-     */
-    public void setPesoBC(String pesoBC) {
-        this.pesoBC = pesoBC;
-    }
     
 }

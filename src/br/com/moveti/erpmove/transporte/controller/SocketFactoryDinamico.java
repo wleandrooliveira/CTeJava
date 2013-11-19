@@ -6,7 +6,7 @@ package br.com.moveti.erpmove.transporte.controller;
 
 /**
  *
- * @author henriquelacerda
+ * @author Geraldo Henrique Lacerda Pinto
  */
  
 import java.io.FileInputStream;  

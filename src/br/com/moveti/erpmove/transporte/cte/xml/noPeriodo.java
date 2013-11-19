@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Entrega no período definido - Obrigatório
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("noPeriodo")
 public class noPeriodo {
@@ -19,45 +19,5 @@ public class noPeriodo {
     @XStreamAlias("dFim")
     private String dFim;
 
-    /**
-     * @return the tpPer
-     */
-    public String getTpPer() {
-        return tpPer;
-    }
-
-    /**
-     * @param tpPer the tpPer to set
-     */
-    public void setTpPer(String tpPer) {
-        this.tpPer = tpPer;
-    }
-
-    /**
-     * @return the dIni
-     */
-    public String getdIni() {
-        return dIni;
-    }
-
-    /**
-     * @param dIni the dIni to set
-     */
-    public void setdIni(String dIni) {
-        this.dIni = dIni;
-    }
-
-    /**
-     * @return the dFim
-     */
-    public String getdFim() {
-        return dFim;
-    }
-
-    /**
-     * @param dFim the dFim to set
-     */
-    public void setdFim(String dFim) {
-        this.dFim = dFim;
-    }
+    
 }

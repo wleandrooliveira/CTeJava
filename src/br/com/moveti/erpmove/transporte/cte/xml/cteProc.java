@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  *
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("cteProc")
 public class cteProc {
@@ -17,45 +17,5 @@ public class cteProc {
     private CTe CTe = new CTe();
     private protCTe protCTe = new protCTe();
 
-    /**
-     * @return the versao
-     */
-    public String getVersao() {
-        return versao;
-    }
-
-    /**
-     * @param versao the versao to set
-     */
-    public void setVersao(String versao) {
-        this.versao = versao;
-    }
-
-    /**
-     * @return the CTe
-     */
-    public CTe getCTe() {
-        return CTe;
-    }
-
-    /**
-     * @param CTe the CTe to set
-     */
-    public void setCTe(CTe CTe) {
-        this.CTe = CTe;
-    }
-
-    /**
-     * @return the protCTe
-     */
-    public protCTe getProtCTe() {
-        return protCTe;
-    }
-
-    /**
-     * @param protCTe the protCTe to set
-     */
-    public void setProtCTe(protCTe protCTe) {
-        this.protCTe = protCTe;
-    }
+    
 }

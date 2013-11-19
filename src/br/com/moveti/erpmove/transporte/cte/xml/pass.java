@@ -8,11 +8,11 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Ocorrência : 0 - n
- * @author Jéssica
+ * @author Geraldo Henrique Lacerda Pinto
  */
 @XStreamAlias("pass")
 public class pass {
-  
+
     @XStreamAlias("xPass")
     private String xPass;
     @XStreamAlias("xDest")
@@ -21,44 +21,43 @@ public class pass {
     private String xRota;
 
     /**
-     * @return the xPass
-     */
-    public String getxPass() {
-        return xPass;
-    }
-
-    /**
-     * @param xPass the xPass to set
+     * Descricao: Sigla ou código interno da Filial/Porto/Estação/Aeroporto de Passagem
+     * Observacao: Observação para o modal aéreo: - O código de três letras IATA, referente ao aeroporto de transferência, deverá ser incluído, quando for o caso. Quando não for possível, utilizar a sigla OACI. Qualquer solicitação de itinerário deverá ser incluída.
+     * Tamanho: 1 - 15
+     * @param 
      */
     public void setxPass(String xPass) {
         this.xPass = xPass;
     }
 
     /**
-     * @return the xDest
-     */
-    public String getxDest() {
-        return xDest;
-    }
-
-    /**
-     * @param xDest the xDest to set
+     * Descricao: Sigla ou código interno da Filial/Porto/Estação/Aeroporto de Destino
+     * Observacao: Observações para o modal aéreo: - Preenchimento obrigatório para o modal aéreo. - Deverá ser incluído o código de três letras IATA do aeroporto de destino. Quando não for possível, utilizar a sigla OACI.
+     * Tamanho: 1 - 15
+     * @param 
      */
     public void setxDest(String xDest) {
         this.xDest = xDest;
     }
 
     /**
-     * @return the xRota
-     */
-    public String getxRota() {
-        return xRota;
-    }
-
-    /**
-     * @param xRota the xRota to set
+     * Descricao: Código da Rota de Entrega
+     * Tamanho: 1 - 10
+     * @param 
      */
     public void setxRota(String xRota) {
         this.xRota = xRota;
+    }
+
+    public String getxDest() {
+        return xDest;
+    }
+
+    public String getxPass() {
+        return xPass;
+    }
+
+    public String getxRota() {
+        return xRota;
     }
 }
