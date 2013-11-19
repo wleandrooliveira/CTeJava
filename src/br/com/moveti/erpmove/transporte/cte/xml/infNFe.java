@@ -13,13 +13,13 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("infNFe")
 public class infNFe {
 
-    @XStreamAlias("Chave")
-    private String Chave;
+    @XStreamAlias("chave")
+    private String chave;
     @XStreamAlias("PIN")
     private String PIN;
 
-    public void setChave(String Chave) {
-        this.Chave = Chave;
+    public void setChave(String chave) {
+        this.chave = chave;
     }
 
     public void setPIN(String PIN) {

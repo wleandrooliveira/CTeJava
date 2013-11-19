@@ -38,9 +38,9 @@ public class infCTeNorm {
      * Observacao: Poderá não ser informado para os CT-e de redespacho intermediário. Nos demais casos deverá sempre ser informado.
      * @param 
      */
-//    public void setContQt(br.com.moveti.erpmove.transporte.cte.xml.contQt contQt) {
-//        this.contQt = contQt;
-//    }
+    public void setInfDoc(br.com.moveti.erpmove.transporte.cte.xml.infDoc infDoc) {
+        this.infDoc = infDoc;
+    }
 
     /**
      * Descricao: Documentos de Transporte Anterior
@@ -104,8 +104,6 @@ public class infCTeNorm {
         return cobr;
     }
 
-   
-
     public br.com.moveti.erpmove.transporte.cte.xml.docAnt getDocAnt() {
         return docAnt;
     }
@@ -120,6 +118,10 @@ public class infCTeNorm {
 
     public br.com.moveti.erpmove.transporte.cte.xml.infModal getInfModal() {
         return infModal;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.infDoc getInfDoc() {
+        return infDoc;
     }
 
     public br.com.moveti.erpmove.transporte.cte.xml.peri getPeri() {

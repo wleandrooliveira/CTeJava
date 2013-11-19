@@ -6,18 +6,23 @@ package br.com.moveti.erpmove.transporte.controller;
 
 import br.com.moveti.erpmove.transporte.cte.xml.Entrega;
 import br.com.moveti.erpmove.transporte.cte.xml.compl;
+import br.com.moveti.erpmove.transporte.cte.xml.docAnt;
 import br.com.moveti.erpmove.transporte.cte.xml.emit;
 import br.com.moveti.erpmove.transporte.cte.xml.enderEmit;
 import br.com.moveti.erpmove.transporte.cte.xml.enderReme;
 import br.com.moveti.erpmove.transporte.cte.xml.ide;
 import br.com.moveti.erpmove.transporte.cte.xml.infCTeNorm;
+import br.com.moveti.erpmove.transporte.cte.xml.infCarga;
 import br.com.moveti.erpmove.transporte.cte.xml.infCte;
 import br.com.moveti.erpmove.transporte.cte.xml.infDoc;
 import br.com.moveti.erpmove.transporte.cte.xml.infNFe;
+import br.com.moveti.erpmove.transporte.cte.xml.moto;
 import br.com.moveti.erpmove.transporte.cte.xml.rem;
+import br.com.moveti.erpmove.transporte.cte.xml.rodo;
 import br.com.moveti.erpmove.transporte.cte.xml.semData;
 import br.com.moveti.erpmove.transporte.cte.xml.semHora;
 import br.com.moveti.erpmove.transporte.cte.xml.toma03;
+import br.com.moveti.erpmove.transporte.cte.xml.veic;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.nio.file.FileSystems;
@@ -160,42 +165,73 @@ public class Teste {
         
         
         infCTeNorm infCTeNorm = new infCTeNorm();
-        
-        
-        infCarga
-        infDoc        
-        docAnt
-                
-        infCTeNorm.setDocAnt(null);
-        infCte.setInfCTeNorm();
+        infCarga infCarga = new infCarga();
+        infDoc infDoc = new infDoc();
         infNFe infNFe = new infNFe();
         infNFe.setChave("35121185782878000855550010000002211151664026");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002641607831237");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002651958710901");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002661633113251");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002671566266346");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002681618839152");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002691800012907");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002701082219507");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002711199746229");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002721949114239");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002731383810958");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002741402547720");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002751640262800");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002761762144320");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002771772821224");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002781425698472");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002791476277080");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002801683645647");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002811672962015");
+        infDoc.addInfNFe(infNFe);
+        infNFe = new infNFe();
+        infNFe.setChave("35121185782878000855550010000002821590931504");
+        infDoc.addInfNFe(infNFe);
         
-        //<infNFe><chave></chave></infNFe>
-//<infNFe>
-//<chave>35121185782878000855550010000002641607831237</chave>
-//</infNFe>
-//<infNFe>
-//<chave>35121185782878000855550010000002651958710901</chave>
-//</infNFe>
-//<infNFe><chave>35121185782878000855550010000002661633113251</chave>
-//</infNFe>
-//<infNFe><chave>35121185782878000855550010000002671566266346</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002681618839152</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002691800012907</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002701082219507</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002711199746229</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002721949114239</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002731383810958</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002741402547720</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002751640262800</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002761762144320</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002771772821224</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002781425698472</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002791476277080</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002801683645647</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002811672962015</chave></infNFe>
-//<infNFe><chave>35121185782878000855550010000002821590931504</chave></infNFe>
+        
+        infCTeNorm.setInfDoc(infDoc);
+        infCte.setInfCTeNorm(infCTeNorm);
+        
 //</rem>
 //<dest>
 //<CNPJ>68252816000146</CNPJ>
@@ -252,27 +288,32 @@ public class Teste {
 //</infQ>
 //</infCarga>
 //<infModal versaoModal="1.04">
-//<rodo>
-//<RNTRC>44501745</RNTRC>
-//<dPrev>2012-12-01</dPrev>
-//<lota>0</lota>
-//<veic>
-//<cInt>9</cInt>
-//<RENAVAM>378016369</RENAVAM>
-//<placa>CVN9852</placa>
-//<tara>0</tara>
-//<capKG>0</capKG>
-//<capM3>0</capM3>
-//<tpProp>P</tpProp>
-//<tpVeic>0</tpVeic>
-//<tpRod>00</tpRod>
-//<tpCar>00</tpCar>
-//<UF>SP</UF>
-//</veic>
-//<moto>
-//<xNome>Marcio Lopes do Prado (motorista)</xNome>
-//<CPF>09864451855</CPF>
-//</moto>
+
+        //<rodo>
+        rodo rodo = new rodo();
+        
+        rodo.setRNTRC("44501745");
+        rodo.setdPrev("2012-12-01");
+        rodo.setLota("0");
+
+        veic veic = new veic();
+        veic.setcInt("9");
+        veic.setRENAVAM("378016369");
+        veic.setPlaca("CVN9852");
+        veic.setTara("0");
+        veic.setCapKG("0");
+        veic.setCapM3("0");
+        veic.setTpProp("P");
+        veic.setTpVeic("0");
+        veic.setTpRod("00");
+        veic.setTpCar("00");
+        veic.setUF("SP");
+
+
+        moto moto = new moto();
+        moto.setxNome("Marcio Lopes do Prado (motorista)");
+        moto.setCPF("09864451855");
+
 //</rodo>
 //</infModal>
 //</infCTeNorm>

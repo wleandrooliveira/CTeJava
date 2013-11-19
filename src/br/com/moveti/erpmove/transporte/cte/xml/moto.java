@@ -12,10 +12,39 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("moto")
 public class moto {
+
     @XStreamAlias("xNome")
     private String xNome;
     @XStreamAlias("CPF")
     private String CPF;
 
-    
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setxNome(String xNome) {
+        this.xNome = xNome;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public String getxNome() {
+        return xNome;
+    }
 }

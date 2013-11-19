@@ -13,28 +13,149 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("veic")
 public class veic {
 
-    @XStreamAlias("cInt")
     private String cInt;
-    @XStreamAlias("RENAVAM")
     private String RENAVAM;
-    @XStreamAlias("placa")
     private String placa;
-    @XStreamAlias("tara")
     private String tara;
-    @XStreamAlias("capKG")
     private String capKG;
-    @XStreamAlias("capM3")
     private String capM3;
-    @XStreamAlias("tpProp")
     private String tpProp;
-    @XStreamAlias("tpVeic")
     private String tpVeic;
-    @XStreamAlias("tpRod")
     private String tpRod;
-    @XStreamAlias("tpCar")
     private String tpCar;
-    @XStreamAlias("UF")
     private String UF;
     //
     private prop prop = new prop();
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setcInt(String cInt) {
+        this.cInt = cInt;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setRENAVAM(String RENAVAM) {
+        this.RENAVAM = RENAVAM;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setTara(String tara) {
+        this.tara = tara;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setCapKG(String capKG) {
+        this.capKG = capKG;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setCapM3(String capM3) {
+        this.capM3 = capM3;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setTpProp(String tpProp) {
+        this.tpProp = tpProp;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setTpVeic(String tpVeic) {
+        this.tpVeic = tpVeic;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setTpRod(String tpRod) {
+        this.tpRod = tpRod;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setTpCar(String tpCar) {
+        this.tpCar = tpCar;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
+
+    /**
+     * Descricao: 
+     * Observacao: 
+     * <b>Obrigatório</b>
+     * Tamanho: 
+     * @param 
+     */
+    public void setProp(br.com.moveti.erpmove.transporte.cte.xml.prop prop) {
+        this.prop = prop;
+    }
 }
