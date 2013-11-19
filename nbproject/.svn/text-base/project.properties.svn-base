@@ -1,0 +1,127 @@
+annotation.processing.enabled=true
+annotation.processing.enabled.in.editor=false
+annotation.processing.run.all.processors=true
+annotation.processing.source.output=${build.generated.sources.dir}/ap-source-output
+application.title=mvtTransporte
+application.vendor=J\u00e9ssica
+build.classes.dir=${build.dir}/classes
+build.classes.excludes=**/*.java,**/*.form
+# This directory is removed when the project is cleaned:
+build.dir=build
+build.generated.dir=${build.dir}/generated
+build.generated.sources.dir=${build.dir}/generated-sources
+# Only compile against the classpath explicitly listed here:
+build.sysclasspath=ignore
+build.test.classes.dir=${build.dir}/test/classes
+build.test.results.dir=${build.dir}/test/results
+# Uncomment to specify the preferred debugger connection transport:
+#debug.transport=dt_socket
+debug.classpath=\
+    ${run.classpath}
+debug.test.classpath=\
+    ${run.test.classpath}
+# This directory is removed when the project is cleaned:
+dist.dir=dist
+dist.jar=${dist.dir}/mvtTransporte.jar
+dist.javadoc.dir=${dist.dir}/javadoc
+endorsed.classpath=
+excludes=
+file.reference.axiom-api-1.2.13.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axiom-api-1.2.13.jar
+file.reference.axiom-dom-1.2.13.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axiom-dom-1.2.13.jar
+file.reference.axiom-impl-1.2.13.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axiom-impl-1.2.13.jar
+file.reference.axis2-adb-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-adb-1.6.2.jar
+file.reference.axis2-adb-codegen-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-adb-codegen-1.6.2.jar
+file.reference.axis2-ant-plugin-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-ant-plugin-1.6.2.jar
+file.reference.axis2-clustering-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-clustering-1.6.2.jar
+file.reference.axis2-codegen-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-codegen-1.6.2.jar
+file.reference.axis2-corba-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-corba-1.6.2.jar
+file.reference.axis2-fastinfoset-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-fastinfoset-1.6.2.jar
+file.reference.axis2-java2wsdl-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-java2wsdl-1.6.2.jar
+file.reference.axis2-jaxbri-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-jaxbri-1.6.2.jar
+file.reference.axis2-jaxws-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-jaxws-1.6.2.jar
+file.reference.axis2-jibx-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-jibx-1.6.2.jar
+file.reference.axis2-json-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-json-1.6.2.jar
+file.reference.axis2-kernel-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-kernel-1.6.2.jar
+file.reference.axis2-metadata-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-metadata-1.6.2.jar
+file.reference.axis2-mtompolicy-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-mtompolicy-1.6.2.jar
+file.reference.axis2-saaj-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-saaj-1.6.2.jar
+file.reference.axis2-soapmonitor-servlet-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-soapmonitor-servlet-1.6.2.jar
+file.reference.axis2-spring-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-spring-1.6.2.jar
+file.reference.axis2-transport-http-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-transport-http-1.6.2.jar
+file.reference.axis2-transport-local-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-transport-local-1.6.2.jar
+file.reference.axis2-xmlbeans-1.6.2.jar=C:\\_PROJETOS\\axis2-1.6.2-bin\\axis2-1.6.2\\lib\\axis2-xmlbeans-1.6.2.jar
+file.reference.commons-httpclient-3.1.jar=C:\\_PROJETOS\\lib\\commons-httpclient-3.1.jar
+file.reference.xstream-1.4.3.jar=C:\\_PROJETOS\\Projetos\\xstream-1.4.3.jar
+includes=**
+jar.compress=false
+javac.classpath=\
+    ${file.reference.xstream-1.4.3.jar}:\
+    ${file.reference.axis2-adb-1.6.2.jar}:\
+    ${file.reference.axis2-adb-codegen-1.6.2.jar}:\
+    ${file.reference.axis2-ant-plugin-1.6.2.jar}:\
+    ${file.reference.axis2-clustering-1.6.2.jar}:\
+    ${file.reference.axis2-codegen-1.6.2.jar}:\
+    ${file.reference.axis2-corba-1.6.2.jar}:\
+    ${file.reference.axis2-fastinfoset-1.6.2.jar}:\
+    ${file.reference.axis2-java2wsdl-1.6.2.jar}:\
+    ${file.reference.axis2-jaxbri-1.6.2.jar}:\
+    ${file.reference.axis2-jaxws-1.6.2.jar}:\
+    ${file.reference.axis2-jibx-1.6.2.jar}:\
+    ${file.reference.axis2-json-1.6.2.jar}:\
+    ${file.reference.axis2-kernel-1.6.2.jar}:\
+    ${file.reference.axis2-metadata-1.6.2.jar}:\
+    ${file.reference.axis2-mtompolicy-1.6.2.jar}:\
+    ${file.reference.axis2-saaj-1.6.2.jar}:\
+    ${file.reference.axis2-soapmonitor-servlet-1.6.2.jar}:\
+    ${file.reference.axis2-spring-1.6.2.jar}:\
+    ${file.reference.axis2-transport-http-1.6.2.jar}:\
+    ${file.reference.axis2-transport-local-1.6.2.jar}:\
+    ${file.reference.axis2-xmlbeans-1.6.2.jar}:\
+    ${file.reference.axiom-api-1.2.13.jar}:\
+    ${file.reference.axiom-dom-1.2.13.jar}:\
+    ${file.reference.axiom-impl-1.2.13.jar}:\
+    ${reference.crnComp.jar}:\
+    ${file.reference.commons-httpclient-3.1.jar}
+# Space-separated list of extra javac options
+javac.compilerargs=
+javac.deprecation=false
+javac.processorpath=\
+    ${javac.classpath}
+javac.source=1.6
+javac.target=1.6
+javac.test.classpath=\
+    ${javac.classpath}:\
+    ${build.classes.dir}
+javac.test.processorpath=\
+    ${javac.test.classpath}
+javadoc.additionalparam=
+javadoc.author=false
+javadoc.encoding=${source.encoding}
+javadoc.noindex=false
+javadoc.nonavbar=false
+javadoc.notree=false
+javadoc.private=false
+javadoc.splitindex=true
+javadoc.use=true
+javadoc.version=false
+javadoc.windowtitle=
+main.class=mvttransporte.MvtTransporte
+manifest.file=manifest.mf
+meta.inf.dir=${src.dir}/META-INF
+mkdist.disabled=false
+platform.active=default_platform
+project.crnComp=../../../../../_PROJETOS/Projetos/crnComp
+reference.crnComp.jar=${project.crnComp}/dist/crnComp.jar
+run.classpath=\
+    ${javac.classpath}:\
+    ${build.classes.dir}
+# Space-separated list of JVM arguments used when running the project
+# (you may also define separate properties like run-sys-prop.name=value instead of -Dname=value
+# or test-sys-prop.name=value to set system properties for unit tests):
+run.jvmargs=
+run.test.classpath=\
+    ${javac.test.classpath}:\
+    ${build.test.classes.dir}
+source.encoding=UTF-8
+src.dir=src
+test.src.dir=test

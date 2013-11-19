@@ -1,0 +1,31 @@
+10
+
+dir
+9
+svn+ssh://192.168.0.101/SVN/mvtTransporte/src
+svn+ssh://192.168.0.101/SVN/mvtTransporte
+
+
+
+2013-10-07T18:00:41.274600Z
+9
+fernando
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2efaa721-757c-404c-8257-ef10a7144ab7
+
+br
+dir
+
