@@ -12,37 +12,25 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("infNF")
 public class infNF {
-    @XStreamAlias("nRoma")
     private String nRoma;
-    @XStreamAlias("nPed")
     private String nPed;
-    @XStreamAlias("mod")
     private String mod;
-    @XStreamAlias("serie")
     private String serie;
-    @XStreamAlias("nDoc")
     private String nDoc;
-    @XStreamAlias("dEmi")
     private String dEmi;
-    @XStreamAlias("vBC")
     private String vBC;
-    @XStreamAlias("vICMS")
     private String vICMS;
-    @XStreamAlias("vBCST")
     private String vBCST;
-    @XStreamAlias("vST")
     private String vST;
-    @XStreamAlias("vProd")    
     private String vProd;
-    @XStreamAlias("vNF")
     private String vNF;
-    @XStreamAlias("nCFOP")
     private String nCFOP;
-    @XStreamAlias("nPeso")
     private String nPeso;
-    @XStreamAlias("PIN")
     private String PIN;
-        
+    private String dPrev;
+    private infUnidTransp infUnidTransp = new infUnidTransp();
+    private  infUnidCarga infUnidCarga = new infUnidCarga();
+    
     private locRet locRet = new locRet();
 
     

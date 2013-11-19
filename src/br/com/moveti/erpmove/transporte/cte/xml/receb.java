@@ -12,6 +12,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("receb")
 public class receb {
+
     @XStreamAlias("CNPJ")
     private String CNPJ;
     @XStreamAlias("CPF")
@@ -21,7 +22,7 @@ public class receb {
     @XStreamAlias("xNome")
     private String xNome;
     @XStreamAlias("fone")
-    private String fone;         
+    private String fone;
     private enderReceb enderReceb = new enderReceb();
     @XStreamAlias("email")
     private String email;
@@ -95,5 +96,32 @@ public class receb {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    public String getCNPJ() {
+        return CNPJ;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public String getIE() {
+        return IE;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.xml.enderReceb getEnderReceb() {
+        return enderReceb;
+    }
+
+    public String getFone() {
+        return fone;
+    }
+
+    public String getxNome() {
+        return xNome;
+    }
 }

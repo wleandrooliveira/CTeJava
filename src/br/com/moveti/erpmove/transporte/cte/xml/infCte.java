@@ -5,6 +5,7 @@
 package br.com.moveti.erpmove.transporte.cte.xml;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 /**
  *
@@ -14,9 +15,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class infCte {
 
     @XStreamAlias("versao")
+    @XStreamAsAttribute
     private String versao;
     @XStreamAlias("Id")
+    @XStreamAsAttribute
     private String Id;
+    
     private ide ide = new ide();
     private compl compl = new compl();
     private emit emit = new emit();

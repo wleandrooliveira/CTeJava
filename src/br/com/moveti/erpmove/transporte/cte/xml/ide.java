@@ -5,6 +5,7 @@
 package br.com.moveti.erpmove.transporte.cte.xml;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
  * Identificação do CT-e - Obrigatório [1-1]
@@ -73,8 +74,12 @@ public class ide {
     private String retira;
     @XStreamAlias("xDetRetira")
     private String XDetRetira;
-    private toma03 toma03 = new toma03();
-    private toma04 toma04 = new toma04();
+    @XStreamAlias("toma03")
+    private toma03 toma03;
+    //= new toma03();
+    @XStreamAlias("toma04")
+    private toma04 toma04;
+    //= new toma04();
 
     /**
      * Descricao: Código da UF do emitente do CT-e.

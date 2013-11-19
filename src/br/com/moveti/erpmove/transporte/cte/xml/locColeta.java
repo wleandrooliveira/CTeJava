@@ -4,24 +4,177 @@
  */
 package br.com.moveti.erpmove.transporte.cte.xml;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 /**
- *
- * @author Fernando
+ * Local de Entrega constante na Nota Fiscal
+ * @author Geraldo Henrique Lacerda Pinto
  */
+@XStreamAlias("locColeta")
 public class locColeta {
-//    132 CNPJ 3 Número do CNPJ CE N 1 - 1 14 ER4
-//133 CPF 3 Número do CPF CE N 1 - 1 11 ER8
-//134 xNome 3 Razão Social ou Nome E C 1 - 1 1 - 60 ER34
-//135 xLgr 3 Logradouro E C 1 - 1 1 - 255 ER34
-//136 nro 3 Número E C 1 - 1 1 - 60 ER34
-//137 xCpl 3 Complemento E C 0 - 1 1 - 60 ER34
-//138 xBairro 3 Bairro E C 1 - 1 1 - 60 ER34
-//139 cMun 3 Código do município (utilizar a tabela do
-//IBGE)
-//E N 1 - 1 7 ER2 Informar 9999999 para operações com o
-//exterior.
-//140 xMun 3 Nome do município E C 1 - 1 1 - 60 ER34 Informar EXTERIOR para operações com
-//o exterior.
-//141 UF 3 Sigla da UF E C 1 - 1 2 D8 Informar EX para operações com o
-//exterior.
+
+    @XStreamAlias("CNPJ")
+    private String CNPJ;
+    @XStreamAlias("CPF")
+    private String CPF;
+    @XStreamAlias("xNome")
+    private String xNome;
+    @XStreamAlias("xLgr")
+    private String xLgr;
+    @XStreamAlias("Nro")
+    private String nro;
+    @XStreamAlias("xCpl")
+    private String xCpl;
+    @XStreamAlias("xBairro")
+    private String xBairro;
+    @XStreamAlias("cMun")
+    private String cMun;
+    @XStreamAlias("xMun")
+    private String xMun;
+    @XStreamAlias("UF")
+    private String UF;
+
+    /**
+     * Descricao: Número do CNPJ
+     * Observacao: Em caso de empresa não estabelecida no Brasil, será informado o CNPJ com zeros. Informar os zeros não significativos
+     * <b>Obrigatório</b>
+     * Tamanho: 14
+     * @param 
+     */
+    public void setCNPJ(String CNPJ) {
+        this.CNPJ = CNPJ;
+    }
+
+    /**
+     * Descricao: Número do CPF
+     * Observacao: Informar os zeros não significativos
+     * <b>Obrigatório</b>
+     * Tamanho: 11
+     * @param 
+     */
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    /**
+     * Descricao: Razão social ou nome do remetente
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
+     */
+    public void setxNome(String xNome) {
+        this.xNome = xNome;
+    }
+
+    /**
+     * Descricao: Logradouro
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 255
+     * @param 
+     */
+    public void setxLgr(String xLgr) {
+        this.xLgr = xLgr;
+    }
+
+    /**
+     * Descricao: Número
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
+     */
+    public void setNro(String nro) {
+        this.nro = nro;
+    }
+
+    /**
+     * Descricao: Complemento
+     * Tamanho: 1 - 60
+     * @param 
+     */
+    public void setxCpl(String xCpl) {
+        this.xCpl = xCpl;
+    }
+
+    /**
+     * Descricao: Bairro
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
+     */
+    public void setxBairro(String xBairro) {
+        this.xBairro = xBairro;
+    }
+
+    /**
+     * Descricao: Código do município (utilizar a tabela do IBGE)
+     * Observacao: Informar 9999999 para operações com o exterior.
+     * <b>Obrigatório</b>
+     * Tamanho: 7
+     * @param 
+     */
+    public void setcMun(String cMun) {
+        this.cMun = cMun;
+    }
+
+    /**
+     * Descricao: Nome do município
+     * Observacao: Informar EXTERIOR para operações com o exterior.
+     * <b>Obrigatório</b>
+     * Tamanho: 1 - 60
+     * @param 
+     */
+    public void setxMun(String xMun) {
+        this.xMun = xMun;
+    }
+
+    /**
+     * Descricao: Sigla da UF
+     * Observacao: Informar EX para operações com o exterior.
+     * <b>Obrigatório</b>
+     * Tamanho: 2
+     * @param 
+     */
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
+
+    public String getCNPJ() {
+        return CNPJ;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public String getUF() {
+        return UF;
+    }
+
+    public String getcMun() {
+        return cMun;
+    }
+
+    public String getNro() {
+        return nro;
+    }
+
+    public String getxBairro() {
+        return xBairro;
+    }
+
+    public String getxCpl() {
+        return xCpl;
+    }
+
+    public String getxLgr() {
+        return xLgr;
+    }
+
+    public String getxMun() {
+        return xMun;
+    }
+
+    public String getxNome() {
+        return xNome;
+    }
 }

@@ -15,10 +15,14 @@ public class infNFe {
 
     @XStreamAlias("Chave")
     private String Chave;
-    
-    //NO PIN Suframa
     @XStreamAlias("PIN")
     private String PIN;
 
-    
+    public void setChave(String Chave) {
+        this.Chave = Chave;
+    }
+
+    public void setPIN(String PIN) {
+        this.PIN = PIN;
+    }
 }

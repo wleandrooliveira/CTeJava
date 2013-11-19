@@ -12,10 +12,20 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("CST")
 public class ICMSSN {
-    @XStreamAlias("indSN")
-    private String indSN;
-    @XStreamAlias("infAdFisco")
-    private String infAdFisco;
 
-    
+    private String indSN;
+
+    /**
+     * Descricao: Indica se o contribuinte é Simples Nacional 1=Sim
+     * <b>Obrigatório</b>
+     * Tamanho: 1
+     * @param 
+     */
+    public void setIndSN(String indSN) {
+        this.indSN = indSN;
+    }
+
+    public String getIndSN() {
+        return indSN;
+    }
 }

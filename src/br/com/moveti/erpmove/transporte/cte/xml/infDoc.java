@@ -12,6 +12,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("infDoc")
 public class infDoc {
+    //infNF
     
 }
 
