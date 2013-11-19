@@ -12,8 +12,22 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("semData")
 public class semData {
+
     @XStreamAlias("tpPer")
     private String tpPer;
 
-    
+    /**
+     * Descricao: Tipo de data/período programado para entrega
+     * Observacao: 0- Sem data definida
+     * <b>Obrigatório</b>
+     * Tamanho: 1
+     * @param 
+     */
+    public void setTpPer(String tpPer) {
+        this.tpPer = tpPer;
+    }
+
+    public String getTpPer() {
+        return tpPer;
+    }
 }

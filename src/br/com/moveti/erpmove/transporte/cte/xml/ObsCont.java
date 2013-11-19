@@ -37,4 +37,12 @@ public class ObsCont {
     public void setxTexto(String xTexto) {
         this.xTexto = xTexto;
     }
+
+    public String getxCampo() {
+        return xCampo;
+    }
+
+    public String getxTexto() {
+        return xTexto;
+    }
 }
