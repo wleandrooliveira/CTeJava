@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.moveti.erpmove.transporte.cte.comunicacao.xmls;
+package br.com.moveti.erpmove.transporte.cte.webservice.xmls;
 
-import br.com.moveti.erpmove.transporte.cte.estrutura.infProt;
-import br.com.moveti.erpmove.transporte.cte.estrutura.protCTe;
-import br.com.moveti.erpmove.transporte.cte.estrutura.retConsSitCTe;
+import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.infProt;
+import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.protCTe;
+import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.retConsSitCTe;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 

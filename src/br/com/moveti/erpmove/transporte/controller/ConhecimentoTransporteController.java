@@ -259,7 +259,7 @@ public class ConhecimentoTransporteController {
                 + "data_emissao_occ = ?, cnpjTransportadora_occ = ?, ie_occ = ?, uf_occ = ?, telefone_occ = ?, idTransportadora_occ = ?, id_veiculo = ?, veiculo_renavam = ?, veiculo_placa = ?, veiculoTara = ?, veiculoCap_kg = ?, veiculoCapM3 = ?, "
                 + "veiculoTipo = ?, veiculoTipo_propriedade = ?, veiculoTipo_rodado = ?, veiculoTipoCarroceria = ?, veiculo_uf_licenciatura = ?, veiculo_propCpf = ?, veiculo_propCnpj = ?, veiculo_prop_rntrc = ?, veiculo_prop_nome = ?, "
                 + "veiculo_prop_ie = ?, veiculo_prop_uf = ?, veiculo_propTipo = ? "
-                + "WHERE id = " + getId();
+                + "WHERE id = " ;
 
 //        Conteudo[0] = String.valueOf(this.getId_nota_fiscal());
 //        Conteudo[1] = String.valueOf(this.getNumero_nfe());
@@ -667,20 +667,20 @@ public class ConhecimentoTransporteController {
         xml.append("<ide>");
             xml.append("<cUF>");
             xml.append("<cCT>");
-            xml.append("<CFOP><CFOP>");cfop
-            xml.append("<natOp><natOp>");natureza_operacao
-            xml.append("<forPag><forPag>");
-            xml.append("<mod><mod>");modelo
-            xml.append("<serie><serie>");serie
-            xml.append("<nCT><nCT>");numeroCte
-            xml.append("<dhEmi><dhEmi>");data_emissao + hora_emissao
-            xml.append("<tpImp><tpImp>");tipo_impressao
-            xml.append("<tpEmis><tpEmis>");tipo_emissao
-            xml.append("<cDV><cDV>");
-            xml.append("<tpAmb><tpAmb>");
-            xml.append("<tpCTe><tpCTe>");tipoCte
-            xml.append("<procEmi><procEmi>");
-            xml.append("<verProc><verProc>");
+//            xml.append("<CFOP><CFOP>");cfop
+//            xml.append("<natOp><natOp>");natureza_operacao
+//            xml.append("<forPag><forPag>");
+//            xml.append("<mod><mod>");modelo
+//            xml.append("<serie><serie>");serie
+//            xml.append("<nCT><nCT>");numeroCte
+//            xml.append("<dhEmi><dhEmi>");data_emissao + hora_emissao
+//            xml.append("<tpImp><tpImp>");tipo_impressao
+//            xml.append("<tpEmis><tpEmis>");tipo_emissao
+//            xml.append("<cDV><cDV>");
+//            xml.append("<tpAmb><tpAmb>");
+//            xml.append("<tpCTe><tpCTe>");tipoCte
+//            xml.append("<procEmi><procEmi>");
+//            xml.append("<verProc><verProc>");
 //            xml.append("<refCTE>");
                     
             xml.append("<cMunEnv>"+conhecimentoTransporte.getCodigoMunicipioEnvio()+"</cMunEnv>");
@@ -996,7 +996,7 @@ public class ConhecimentoTransporteController {
                     xml.append("</infQ>");
                 xml.append("</infCarga>");
                 xml.append("<infDoc>");
-                    xml.append("<infNF>
+                    xml.append("<infNF>");
 //                        xml.append("<nRoma>
 //                        xml.append("<nPed>
                         xml.append("<mod>"+conhecimentoTransporte.getModelo()+"</cUnid>");

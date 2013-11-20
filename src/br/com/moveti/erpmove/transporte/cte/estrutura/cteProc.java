@@ -4,6 +4,7 @@
  */
 package br.com.moveti.erpmove.transporte.cte.estrutura;
 
+import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.protCTe;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**

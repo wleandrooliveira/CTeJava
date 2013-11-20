@@ -4,8 +4,9 @@
  */
 package br.com.moveti.erpmove.transporte.cte;
 
-import br.com.moveti.erpmove.transporte.cte.comunicacao.xmls.XMLretCancCte;
-import br.com.moveti.erpmove.transporte.cte.comunicacao.xmls.XMLretEnviCTe;
+import br.com.moveti.erpmove.transporte.cte.webservice.xmls.XMLretEnviCTe;
+
+
 
 /**
  *
@@ -841,50 +842,50 @@ public class validacoesCte{
             TratamentoRetorno200.BuscaDadosXML();
             // Gravar os dados 
             // Codigo Status
-            retorno[0] = TratamentoRetorno200.getRetEnv().getcStat();
-            // Motivo
-            retorno[1] = TratamentoRetorno200.getRetEnv().getxMotivo();
-            // Numero recibo
-            retorno[2] = TratamentoRetorno200.getRetEnv().getInfRec().getnRec();
-            // Protocolo
-            retorno[3] = "";
-            // Data hora recebimento
-            retorno[4] = TratamentoRetorno200.getRetEnv().getInfRec().getDhRecbto();
+//            retorno[0] = TratamentoRetorno200.getRetEnv().getcStat();
+//            // Motivo
+//            retorno[1] = TratamentoRetorno200.getRetEnv().getxMotivo();
+//            // Numero recibo
+//            retorno[2] = TratamentoRetorno200.getRetEnv().getInfRec().getnRec();
+//            // Protocolo
+//            retorno[3] = "";
+//            // Data hora recebimento
+//            retorno[4] = TratamentoRetorno200.getRetEnv().getInfRec().getDhRecbto();
 
         } else if (tipoMetodo.equals("cancelamento")) {           
-            XMLretCancCte TratamentoRetorno200 = new XMLretCancCte();
+//            XMLretCancCte TratamentoRetorno200 = new XMLretCancCte();
 
             if (xml.contains("<cStat>101</cStat>")) {
                 // Trata o retorno dos dados do cancelamento
                 // em uma classe para tratamento de xml
-                TratamentoRetorno200.setXML(xml);
-                TratamentoRetorno200.BuscaDadosXML();
-             
-                retorno[0] = TratamentoRetorno200.getRetCanc().getInfCanc().getcStat();
-                // Motivo
-                retorno[1] = TratamentoRetorno200.getRetCanc().getInfCanc().getxMotivo();
-                // Numero recibo
-                retorno[2] = "";
-                // Protocolo
-                retorno[3] = TratamentoRetorno200.getRetCanc().getInfCanc().getnProt();
-                // Data hora recibimento
-                retorno[4] = TratamentoRetorno200.getRetCanc().getInfCanc().getDhRecbto();
+//                TratamentoRetorno200.setXML(xml);
+//                TratamentoRetorno200.BuscaDadosXML();
+//             
+//                retorno[0] = TratamentoRetorno200.getRetCanc().getInfCanc().getcStat();
+//                // Motivo
+//                retorno[1] = TratamentoRetorno200.getRetCanc().getInfCanc().getxMotivo();
+//                // Numero recibo
+//                retorno[2] = "";
+//                // Protocolo
+//                retorno[3] = TratamentoRetorno200.getRetCanc().getInfCanc().getnProt();
+//                // Data hora recibimento
+//                retorno[4] = TratamentoRetorno200.getRetCanc().getInfCanc().getDhRecbto();
             } else {
                 // Trata o retorno dos dados do cancelamento
                 // em uma classe para tratamento de xml
-                TratamentoRetorno200.setXML(xml);
-                TratamentoRetorno200.BuscaDadosXML();
-                // Grava os dados caso nao seja
-                // Codigo Status
-                retorno[0] = TratamentoRetorno200.getRetCanc().getInfCanc().getcStat();
-                // Motivo
-                retorno[1] = TratamentoRetorno200.getRetCanc().getInfCanc().getxMotivo();
-                // Numero recibo
-                retorno[2] = "";
-                // Protocolo
-                retorno[3] = "";
-                // Data hora recebimento
-                retorno[4] = TratamentoRetorno200.getRetCanc().getInfCanc().getDhRecbto();
+//                TratamentoRetorno200.setXML(xml);
+//                TratamentoRetorno200.BuscaDadosXML();
+//                // Grava os dados caso nao seja
+//                // Codigo Status
+//                retorno[0] = TratamentoRetorno200.getRetCanc().getInfCanc().getcStat();
+//                // Motivo
+//                retorno[1] = TratamentoRetorno200.getRetCanc().getInfCanc().getxMotivo();
+//                // Numero recibo
+//                retorno[2] = "";
+//                // Protocolo
+//                retorno[3] = "";
+//                // Data hora recebimento
+//                retorno[4] = TratamentoRetorno200.getRetCanc().getInfCanc().getDhRecbto();
             }
         } else if (tipoMetodo.equals("inutilizacao")) {
 //            XMLretInutCTeH200 TratamentoRetornoH200 = new XMLretInutCTeH200();

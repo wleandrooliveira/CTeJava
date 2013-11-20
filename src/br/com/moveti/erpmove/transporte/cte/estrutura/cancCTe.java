@@ -4,6 +4,8 @@
  */
 package br.com.moveti.erpmove.transporte.cte.estrutura;
 
+import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.infCanc;
+
 /**
  *
  * @author Geraldo Henrique Lacerda Pinto
