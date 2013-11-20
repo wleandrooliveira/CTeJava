@@ -33,6 +33,13 @@ dir
 
 delete
 
+estrutura
+dir
+
+
+
+add
+
 transmissoesCTe.java
 file
 
@@ -81,4 +88,8 @@ jessica
 
 xml
 dir
+
+
+
+delete
 

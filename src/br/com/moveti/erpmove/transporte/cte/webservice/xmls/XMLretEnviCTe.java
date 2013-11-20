@@ -4,8 +4,8 @@
  */
 package br.com.moveti.erpmove.transporte.cte.comunicacao.xmls;
 
-import br.com.moveti.erpmove.transporte.cte.xml.infRec;
-import br.com.moveti.erpmove.transporte.cte.xml.retEnviCte;
+import br.com.moveti.erpmove.transporte.cte.estrutura.infRec;
+import br.com.moveti.erpmove.transporte.cte.estrutura.retEnviCte;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 

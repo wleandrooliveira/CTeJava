@@ -4,7 +4,7 @@
  */
 package br.com.moveti.erpmove.transporte.cte.comunicacao.xmls;
 
-import br.com.moveti.erpmove.transporte.cte.xml.retConsStatServCte;
+import br.com.moveti.erpmove.transporte.cte.estrutura.retConsStatServCte;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 

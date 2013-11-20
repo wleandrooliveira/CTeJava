@@ -4,9 +4,9 @@
  */
 package br.com.moveti.erpmove.transporte.cte.comunicacao.xmls;
 
-import br.com.moveti.erpmove.transporte.cte.xml.Signature;
-import br.com.moveti.erpmove.transporte.cte.xml.infInut;
-import br.com.moveti.erpmove.transporte.cte.xml.retInutCTe;
+import br.com.moveti.erpmove.transporte.cte.estrutura.Signature;
+import br.com.moveti.erpmove.transporte.cte.estrutura.infInut;
+import br.com.moveti.erpmove.transporte.cte.estrutura.retInutCTe;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
