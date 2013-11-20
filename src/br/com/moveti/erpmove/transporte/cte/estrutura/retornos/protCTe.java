@@ -4,7 +4,7 @@
  */
 package br.com.moveti.erpmove.transporte.cte.estrutura.retornos;
 
-import br.com.moveti.erpmove.transporte.cte.estrutura.Signature;
+import br.com.moveti.erpmove.transporte.cte.model.Signature;
 import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.infProt;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 

@@ -5,7 +5,7 @@
 package br.com.moveti.erpmove.transporte.cte;
 
 import br.com.moveti.erpmove.transporte.controller.SocketFactoryDinamico;
-import br.com.moveti.erpmove.transporte.controller._Funcoes;
+import br.com.moveti.erpmove.transporte.controller.FormatacaoDados;
 import br.com.moveti.erpmove.transporte.cte.webservice.CteCancelamento.CteCancelamentoStub;
 import br.com.moveti.erpmove.transporte.cte.webservice.CteConsulta.CteConsultaStub;
 import br.com.moveti.erpmove.transporte.cte.webservice.CteInutilizacao.CteInutilizacaoStub;
@@ -88,6 +88,7 @@ public class transmissoesCTe {
     private String configuracaoSerieNf = "";
     private String configuracaoAmbienteEmissaoNf = "";
     private String empresaCodEstado = "";
+    private String versaoDados = "2.00";
     private String empresaCnpj = "";
     private String estado = "";
     private String tipo = "";
@@ -95,86 +96,87 @@ public class transmissoesCTe {
     private boolean ProtocoloAdicionado = false;
     private String aliasCertificado = "";
 
-//    public boolean assinarControleTransporte() throws Exception {
-//        try {
-//            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//            factory.setNamespaceAware(true);
-//            DocumentBuilder builder = factory.newDocumentBuilder();
-//            Document doc = builder.parse(new ByteArrayInputStream(getXML().toString().getBytes("UTF-8")));
-//            doc.setXmlStandalone(true);
-//            doc.getDocumentElement().removeAttribute("xmlns:ns2");
-//            NodeList elements = doc.getElementsByTagName("infCte");
-//            Element el = (Element) elements.item(0);
-//            String id = el.getAttribute("Id");
-//            el.setIdAttribute("Id", true);
-//            // Create a DOM XMLSignatureFactory that will be used to
-//            // generate the enveloped signature.
-//            XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
-//            // Create a Reference to the enveloped document (in this case,
-//            // you are signing the whole document, so a URI of "" signifies
-//            // that, and also specify the SHA1 digest algorithm and
-//            // the ENVELOPED Transform.
-//            ArrayList transformList = new ArrayList();
-//            TransformParameterSpec tps = null;
-//            Transform envelopedTransform = fac.newTransform(Transform.ENVELOPED, tps);
-//            Transform c14NTransform = fac.newTransform("http://www.w3.org/TR/2001/REC-xml-c14n-20010315", tps);
-//            stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-//            transformList.add(envelopedTransform);
-//            transformList.add(c14NTransform);
-//            KeyStore ks = KeyStore.getInstance("PKCS12");
-//            char[] pin;
-//            Provider p2[];
-//            if (getTipoCertificado().equals("A1")) {
-//                pin = getSenhaCertificado().toCharArray();
-//                ks = KeyStore.getInstance("PKCS12");
-//                ks.load(new FileInputStream(getCaminhoCertificadoA1().replace("\\", "\\\\")), pin);
-//            } else {
-//                configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
-//                stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-//                Provider p = new sun.security.pkcs11.SunPKCS11(stream);
-//                Security.addProvider(p);
-//                ks = KeyStore.getInstance("PKCS11");
-//                ks.load(null, getSenhaCertificado().toCharArray());
-//            }
-//            KeyStore.PrivateKeyEntry pkEntry = null;
-//            Enumeration aliasesEnum = ks.aliases();
-//            PrivateKey privateKey = null;
-//            while (aliasesEnum.hasMoreElements()) {
-//                String alias = (String) aliasesEnum.nextElement();
-//                if (ks.isKeyEntry(alias)) {
-//                    KeyStore.PasswordProtection asdf = new KeyStore.PasswordProtection(getSenhaCertificado().toCharArray());
-//                    KeyStore.Entry f = ks.getEntry(alias, asdf);
-//                    pkEntry = (KeyStore.PrivateKeyEntry) f;
-//                    privateKey = pkEntry.getPrivateKey();
-//                    break;
-//                }
-//            }
-//            X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
-//            // Create the KeyInfo containing the X509Data.
-//            KeyInfoFactory kif = fac.getKeyInfoFactory();
-//            List x509Content = new ArrayList();
-//            x509Content.add(cert);
-//            X509Data xd = kif.newX509Data(x509Content);
-//            KeyInfo ki = kif.newKeyInfo(Collections.singletonList(xd));
-//            Reference ref = fac.newReference("#" + id, fac.newDigestMethod(
-//                    DigestMethod.SHA1, null), transformList, null, null);
-//            SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(
-//                    CanonicalizationMethod.INCLUSIVE,
-//                    (C14NMethodParameterSpec) null), fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
-//                    Collections.singletonList(ref));
-//            XMLSignature signature = fac.newXMLSignature(si, ki);
-//            DOMSignContext dsc = new DOMSignContext(privateKey, doc.getDocumentElement());
-//            signature.sign(dsc);
-//            ByteArrayOutputStream os = new ByteArrayOutputStream();
-//            TransformerFactory tf = TransformerFactory.newInstance();
-//            Transformer trans = tf.newTransformer();
-//            trans.transform(new DOMSource(doc), new StreamResult(os));
-//            this.setXMLAssinado(os.toString());
-//            return true;
-//        } catch (Exception e) {
-//            return false;
-//        }
-//    }
+    public String assinarXml(String _XML) throws Exception {
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(new ByteArrayInputStream(_XML.getBytes("UTF-8")));
+            doc.setXmlStandalone(true);
+            doc.getDocumentElement().removeAttribute("xmlns:ns2");
+            Node element = doc.getDocumentElement().getFirstChild();
+            Element el = (Element) element;
+            String id = el.getAttribute("Id");
+            // Create a DOM XMLSignatureFactory that will be used to
+            // generate the enveloped signature.          
+            XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
+            // Create a Reference to the enveloped document (in this case,
+            // you are signing the whole document, so a URI of "" signifies
+            // that, and also specify the SHA1 digest algorithm and
+            // the ENVELOPED Transform.
+            ArrayList transformList = new ArrayList();
+            TransformParameterSpec tps = null;
+            Transform envelopedTransform = fac.newTransform(Transform.ENVELOPED, tps);
+            Transform c14NTransform = fac.newTransform("http://www.w3.org/TR/2001/REC-xml-c14n-20010315", tps);
+            transformList.add(envelopedTransform);
+            transformList.add(c14NTransform);
+            // Load the KeyStore and get the signing key and certificate.
+            KeyStore ks = KeyStore.getInstance("PKCS12");
+            char[] pin;
+            p = null;
+
+            configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
+            stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
+            if (getTipoCertificado().equals("A1")) {
+                pin = getSenhaCertificado().toCharArray();
+                ks = KeyStore.getInstance("PKCS12");
+                ks.load(new FileInputStream(getCaminhoCertificadoA1().replace("\\", "\\\\")), pin);
+            } else {
+                configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
+                stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
+                Provider p = new sun.security.pkcs11.SunPKCS11(stream);
+                Security.addProvider(p);
+                ks = KeyStore.getInstance("pkcs11");
+                ks.load(null, getSenhaCertificado().toCharArray());
+            }
+            KeyStore.PrivateKeyEntry pkEntry = null;
+            Enumeration aliasesEnum = ks.aliases();
+            PrivateKey privateKey = null;
+            while (aliasesEnum.hasMoreElements()) {
+                String alias = (String) aliasesEnum.nextElement();
+                if (ks.isKeyEntry(alias)) {
+                    pkEntry = (KeyStore.PrivateKeyEntry) ks.getEntry(alias, new KeyStore.PasswordProtection(
+                            getSenhaCertificado().toCharArray()));
+                    privateKey = pkEntry.getPrivateKey();
+                    break;
+                }
+            }
+            X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
+            KeyInfoFactory kif = fac.getKeyInfoFactory();
+            List x509Content = new ArrayList();
+            x509Content.add(cert);
+            X509Data xd = kif.newX509Data(x509Content);
+            KeyInfo ki = kif.newKeyInfo(Collections.singletonList(xd));
+            Reference ref = fac.newReference("#" + id, fac.newDigestMethod(
+                    DigestMethod.SHA1, null), transformList, null, null);
+            SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(
+                    CanonicalizationMethod.INCLUSIVE,
+                    (C14NMethodParameterSpec) null), fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
+                    Collections.singletonList(ref));
+            XMLSignature signature = fac.newXMLSignature(si, ki);
+            DOMSignContext dsc = new DOMSignContext(privateKey, doc.getDocumentElement());
+            signature.sign(dsc);
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer trans = tf.newTransformer();
+            trans.transform(new DOMSource(doc), new StreamResult(os));
+            return os.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
     public boolean assinarEnviCTe(String enviCTe) throws Exception {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -226,6 +228,7 @@ public class transmissoesCTe {
             x509Content.add(cert);
             X509Data xd = kif.newX509Data(x509Content);
             KeyInfo ki = kif.newKeyInfo(Collections.singletonList(xd));
+            // Assinar os filhos "CTe"
             for (int i = 0; i < doc.getDocumentElement().getElementsByTagName("CTe").getLength(); i++) {
                 assinarCTe(fac, transformList, privateKey, ki, doc, i);
             }
@@ -267,24 +270,30 @@ public class transmissoesCTe {
         signature.sign(dsc);
     }
 
-    public String validarXMLControlesTransporte() {
+    public String validarXMLCTe(String _xml, String _tipoXml) {
         try {
+            File arquivo = null;
+            if ("enviCTe".equals(_tipoXml)) {
+                arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/enviCTe_v2.00.xsd").toURI());
+            } else if ("consReciCTe".equals(_tipoXml)) {
+                arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/consReciCTe_v2.00.xsd").toURI());
+            } else if ("consSitCTe".equals(_tipoXml)) {
+                arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/consSitCTe_v2.00.xsd").toURI());
+            } else if ("cancCTe".equals(_tipoXml)) {
+                arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/tiposGeralCTe_v2.00.xsd").toURI());
+            } else {
+                arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/cte_v2.00.xsd").toURI());
+            }
             //Parse an XML document into a DOM tree.
             DocumentBuilderFactory DBF = DocumentBuilderFactory.newInstance();
             DBF.setNamespaceAware(true);
             DocumentBuilder parser = DBF.newDocumentBuilder();
-            InputStream IS = new ByteArrayInputStream(getXMLAssinado().getBytes());
+            InputStream IS = new ByteArrayInputStream(_xml.getBytes());
             Document document = parser.parse(IS);
             // Create a SchemaFactory capable of understanding WXS schemas.
             SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-
-            String Path = new crncomp.parametros._verificaParametro(11).getValorString();
-            //System.out.println("RESOURCES: ");
-            //System.out.println(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/cte_v2.00.xsd"));
-            //System.out.println(transmissoesCTe.class.getResourceAsStream("/br/com/moveti/erpmove/transporte/cte/schemas/cte_v2.00.xsd"));
-
-            //getClass().getResourceAsStream("/pacote/nomeArquivo.extensao");
-            Source schemaFile = new StreamSource(new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/cte_v2.00.xsd").toURI()));
+            //
+            Source schemaFile = new StreamSource(arquivo);
             //
             Schema schema = factory.newSchema(schemaFile);
             // Create a Validator object, which can be used to validate
@@ -305,7 +314,7 @@ public class transmissoesCTe {
         }
     }
 
-    public String enviarControlesTransporte(int numeracaoLote) {
+    public String enviarEnviCTe(int numeracaoLote) {
         String Resultado = "0";
         try {
             URL url;
@@ -349,48 +358,40 @@ public class transmissoesCTe {
                 }
             }
             // Realiza a conexao com WebService
-            try {
-                this.buscarDadosCertificado();
+            this.buscarDadosCertificado();
 
-                String xml = getXMLAssinado().replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>", "");
-                xml = xml.replace("xmlns=\"http://www.portalfiscal.inf.br/cte\"", "");
-                String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-                        + "<enviCTe xmlns=\"http://www.portalfiscal.inf.br/cte\" versao=\"2.00\">"
-                        + "<idLote>" + numeracaoLote + "</idLote>"
-                        + getXML().replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>", "").replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>", "").replace("xmlns=\"http://www.portalfiscal.inf.br/CTe\"", "")
-                        + "</enviCTe>";
+            String xml = getXMLAssinado().replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>", "");
+            xml = xml.replace("xmlns=\"http://www.portalfiscal.inf.br/cte\"", "");
 
-                this.assinarEnviCTe(CteDadosMsg);
+            String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+                    + "<enviCTe xmlns=\"http://www.portalfiscal.inf.br/cte\" versao=\"2.00\">"
+                    + "<idLote>" + numeracaoLote + "</idLote>"
+                    + getXML().replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>", "").replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>", "").replace("xmlns=\"http://www.portalfiscal.inf.br/CTe\"", "")
+                    + "</enviCTe>";
 
-//                System.out.println(url.toString());
-//                System.out.println("XML");
-//                System.out.println(CteDadosMsg);
+            this.assinarEnviCTe(CteDadosMsg);
+            this.validarXMLCTe(CteDadosMsg, "enviCTe");
 
-                OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
-                CteRecepcaoStub.CteDadosMsg dadosMsg = new CteRecepcaoStub.CteDadosMsg();
-                dadosMsg.setExtraElement(ome);
-                CteRecepcaoStub.CteCabecMsg cteCabecMsg = new CteRecepcaoStub.CteCabecMsg();
-                cteCabecMsg.setCUF(empresaCodEstado);
-                cteCabecMsg.setVersaoDados("2.00");
-                CteRecepcaoStub.CteCabecMsgE cteCabecMsgE = new CteRecepcaoStub.CteCabecMsgE();
-                cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
+            OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
+            CteRecepcaoStub.CteDadosMsg dadosMsg = new CteRecepcaoStub.CteDadosMsg();
+            dadosMsg.setExtraElement(ome);
+            CteRecepcaoStub.CteCabecMsg cteCabecMsg = new CteRecepcaoStub.CteCabecMsg();
+            cteCabecMsg.setCUF(empresaCodEstado);
+            cteCabecMsg.setVersaoDados(versaoDados);
+            CteRecepcaoStub.CteCabecMsgE cteCabecMsgE = new CteRecepcaoStub.CteCabecMsgE();
+            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
-                CteRecepcaoStub stub = new CteRecepcaoStub(url.toString());
-                CteRecepcaoStub.CteRecepcaoLoteResult result = stub.cteRecepcaoLote(dadosMsg, cteCabecMsgE);
-                Resultado = result.getExtraElement().toString();
+            CteRecepcaoStub stub = new CteRecepcaoStub(url.toString());
+            CteRecepcaoStub.CteRecepcaoLoteResult result = stub.cteRecepcaoLote(dadosMsg, cteCabecMsgE);
+            Resultado = result.getExtraElement().toString();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-
-            }
         } catch (Exception e) {
-            System.err.println(e.toString());
             e.printStackTrace();
         }
         return Resultado;
     }
 
-    public String retornoEnviaCTe(String transmitidaNumeroRecibo) {
+    public String enviarConsReciCTe(String transmitidaNumeroRecibo) {
         String Resultado = "0";
         try {
             URL url = null;
@@ -432,38 +433,28 @@ public class transmissoesCTe {
                 }
             }
             // Realiza a conexao com WebService
-            try {
-                this.buscarDadosCertificado();
-                /**
-                 * Xml de Consulta.
-                 */
-                String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-                        + "<consReciCTe xmlns=\"http://www.portalfiscal.inf.br/CTe\" versao=\"2.00\">"
-                        + "<tpAmb>" + getConfiguracaoAmbienteEmissaoNf() + "</tpAmb>"
-                        + "<nRec>" + transmitidaNumeroRecibo + "</nRec>"
-                        + "</consReciCTe>";
+            this.buscarDadosCertificado();
+            String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+                    + "<consReciCTe xmlns=\"http://www.portalfiscal.inf.br/CTe\" versao=\"2.00\">"
+                    + "<tpAmb>" + getConfiguracaoAmbienteEmissaoNf() + "</tpAmb>"
+                    + "<nRec>" + transmitidaNumeroRecibo + "</nRec>"
+                    + "</consReciCTe>";
 
-                OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
-                CteRetRecepcaoStub.CteDadosMsg dadosMsg = new CteRetRecepcaoStub.CteDadosMsg();
-                dadosMsg.setExtraElement(ome);
+            this.validarXMLCTe(CteDadosMsg, "consReciCTe");
 
-                CteRetRecepcaoStub.CteCabecMsg CteCabecMsg = new CteRetRecepcaoStub.CteCabecMsg();
-                /**
-                 * Código do Estado.
-                 */
-                CteCabecMsg.setCUF(getEmpresaCodEstado());
-                /**
-                 * Versao do XML
-                 */
-                CteCabecMsg.setVersaoDados("2.00");
-                CteRetRecepcaoStub.CteCabecMsgE CteCabecMsgE = new CteRetRecepcaoStub.CteCabecMsgE();
-                CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
-                CteRetRecepcaoStub stub = new CteRetRecepcaoStub(url.toString());
-                CteRetRecepcaoStub.CteRetRecepcaoResult result = stub.cteRetRecepcao(dadosMsg, CteCabecMsgE);
-                Resultado = result.getExtraElement().toString();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
+            CteRetRecepcaoStub.CteDadosMsg dadosMsg = new CteRetRecepcaoStub.CteDadosMsg();
+            dadosMsg.setExtraElement(ome);
+
+            CteRetRecepcaoStub.CteCabecMsg CteCabecMsg = new CteRetRecepcaoStub.CteCabecMsg();
+            CteCabecMsg.setCUF(getEmpresaCodEstado());
+            CteCabecMsg.setVersaoDados(versaoDados);
+            CteRetRecepcaoStub.CteCabecMsgE CteCabecMsgE = new CteRetRecepcaoStub.CteCabecMsgE();
+            CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
+            CteRetRecepcaoStub stub = new CteRetRecepcaoStub(url.toString());
+            CteRetRecepcaoStub.CteRetRecepcaoResult result = stub.cteRetRecepcao(dadosMsg, CteCabecMsgE);
+            Resultado = result.getExtraElement().toString();
+
         } catch (Exception e) {
         }
         System.out.println(Resultado);
@@ -471,14 +462,12 @@ public class transmissoesCTe {
 
     }
 
-    public String consultarCTe(String chaveAcesso) {
+    public String enviarConsSitCTe(String chaveAcesso) {
         String Resultado = "0";
         try {
             URL url = null;
             if (getConfiguracaoAmbienteEmissaoNf().equals("2")) {
-
                 url = new URL("https://hom.CTe.fazenda.gov.br/SCAN/CTeConsulta2/CTeConsulta2.asmx");
-
                 if (getEstado().equals("MT")) {
                     url = new URL("https://homologacao.sefaz.mt.gov.br/ctews/services/CteConsulta");
                 } else if (getEstado().equals("MS")) {
@@ -493,9 +482,7 @@ public class transmissoesCTe {
                     url = new URL("https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteConsulta.asmx");
                 }
             } else {
-
                 url = new URL("https://www.scan.fazenda.gov.br/CTeConsulta2/CTeConsulta2.asmx");
-
                 if (getEstado().equals("MG")) {
                     url = new URL("https://cte.fazenda.mg.gov.br/cte/services/CteConsulta");
                 } else if (getEstado().equals("MS")) {
@@ -509,203 +496,37 @@ public class transmissoesCTe {
                 } else if (getEstado().equals("SP")) {
                     url = new URL("https://nfe.fazenda.sp.gov.br/cteWEB/services/cteConsulta.asmx");
                 }
-
             }
             // Realiza a conexao com WebService
             this.buscarDadosCertificado();
-            /**
-             * Xml de Consulta.
-             */
             String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\" ?> "
-                    //                        + "<consSitCTe xmlns=\"http://www.portalfiscal.inf.br/cte\" versao=\"" + Login._sessao.configuracao.getVersaoAmbiente() + "\">"
                     + "<consSitCTe xmlns=\"http://www.portalfiscal.inf.br/cte\" versao=\"2.01\">"
                     + "<tpAmb>" + getConfiguracaoAmbienteEmissaoNf() + "</tpAmb> "
                     + "<xServ>CONSULTAR</xServ> "
                     + "<chCTe>" + chaveAcesso + "</chCTe> "
                     + "</consSitCTe>";
 
+            this.validarXMLCTe(CteDadosMsg, "consSitCTe");
+
             OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
             CteConsultaStub.CteDadosMsg dadosMsg = new CteConsultaStub.CteDadosMsg();
             dadosMsg.setExtraElement(ome);
-
             CteConsultaStub.CteCabecMsg CteCabecMsg = new CteConsultaStub.CteCabecMsg();
-            /**
-             * Código do Estado.
-             */
             CteCabecMsg.setCUF(getEmpresaCodEstado());
-            /**
-             * Versao do XML
-             */
-            CteCabecMsg.setVersaoDados("2.01");
+            CteCabecMsg.setVersaoDados(versaoDados);
             CteConsultaStub.CteCabecMsgE CteCabecMsgE = new CteConsultaStub.CteCabecMsgE();
             CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
-
             CteConsultaStub stub = new CteConsultaStub(url.toString());
             CteConsultaStub.CteConsultaCTResult result = stub.cteConsultaCT(dadosMsg, CteCabecMsgE);
-
             Resultado = result.getExtraElement().toString();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
         return Resultado;
     }
 
-    public String assinarCancCTe(String TipoCertificado, String Senha, String XML) throws Exception {
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setNamespaceAware(true);
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            // Document docs = builder.parse(new File(
-            // "c:/xml/430802017886010001735500000000010000030371-CTe.xml"));
-            //System.err.println(getControleTransporteXML());
-            Document doc = builder.parse(new ByteArrayInputStream(XML.getBytes("UTF-8")));
-            //Document doc = builder.parse(new ByteArrayInputStream(getControleTransporteXML().toString().getBytes()));
-            doc.setXmlStandalone(true);
-            doc.getDocumentElement().removeAttribute("xmlns:ns2");
-            //NodeList elements = doc.getElementsByTagName("infCanc");
-            //Node element = doc.getDocumentElement().getFirstChild().getNextSibling();
-            Node element = doc.getDocumentElement().getFirstChild();
-
-            // elements.getLength();
-            Element el = (Element) element;
-            // Element el =
-            // doc.getDocumentElement().getFirstChild().getChildNodes();
-            String id = el.getAttribute("Id");
-
-            // Create a DOM XMLSignatureFactory that will be used to
-            // generate the enveloped signature.          
-            XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
-
-            // Create a Reference to the enveloped document (in this case,
-            // you are signing the whole document, so a URI of "" signifies
-            // that, and also specify the SHA1 digest algorithm and
-            // the ENVELOPED Transform.
-            ArrayList transformList = new ArrayList();
-            TransformParameterSpec tps = null;
-            Transform envelopedTransform = fac.newTransform(Transform.ENVELOPED, tps);
-            Transform c14NTransform = fac.newTransform("http://www.w3.org/TR/2001/REC-xml-c14n-20010315", tps);
-
-            transformList.add(envelopedTransform);
-            transformList.add(c14NTransform);
-            // Load the KeyStore and get the signing key and certificate.
-            KeyStore ks = KeyStore.getInstance("PKCS12");
-            char[] pin;
-            p = null;
-            Provider p2[];
-            //System.err.println("Teste 01 ");            
-
-            configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
-            stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-            //this.buscarDadosCertificado(TipoCertificado, SenhaCertificado);           
-            if (getTipoCertificado().equals("A1")) {
-                pin = getSenhaCertificado().toCharArray();
-                ks = KeyStore.getInstance("PKCS12");
-                ks.load(new FileInputStream(getCaminhoCertificadoA1().replace("\\", "\\\\")), pin);
-            } else {
-                configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
-                stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-                Provider p = new sun.security.pkcs11.SunPKCS11(stream);
-                //p = new sun.security.pkcs11.SunPKCS11("SunPKCS11-SmartCard");               
-                // procura e remove o ultimo provider               
-                Security.addProvider(p);
-                /*if (Security.getProviders().length > 0)
-                {
-                System.err.println("Verifica providers");
-                p2 = Security.getProviders();
-                for (int i =0; i < p2.length; i++)
-                {
-                System.err.println(p2[0].getInfo());
-                if (p2[0].getName().equals(p.getName()))
-                {
-                System.err.println(p.getName());
-                }
-                //Security.removeProvider(p2[0].getName());
-                }
-                }*/
-
-//                pin = getSenhaCertificado().toCharArray();
-                //ks = KeyStore.getInstance("PKCS11", p);
-                ks = KeyStore.getInstance("pkcs11");
-                try {
-                    ks.load(null, getSenhaCertificado().toCharArray());
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-
-            }
-
-            KeyStore.PrivateKeyEntry pkEntry = null;
-            Enumeration aliasesEnum = ks.aliases();
-            PrivateKey privateKey = null;
-
-            while (aliasesEnum.hasMoreElements()) {
-                String alias = (String) aliasesEnum.nextElement();
-                if (ks.isKeyEntry(alias)) {
-                    pkEntry = (KeyStore.PrivateKeyEntry) ks.getEntry(alias, new KeyStore.PasswordProtection(
-                            getSenhaCertificado().toCharArray()));
-                    privateKey = pkEntry.getPrivateKey();
-                    break;
-                }
-            }
-            X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
-            //System.err.println("Teste 03 ");
-            // Create the KeyInfo containing the X509Data.
-            KeyInfoFactory kif = fac.getKeyInfoFactory();
-            List x509Content = new ArrayList();
-            // x509Content.add(cert.getSubjectX500Principal().getName());
-            x509Content.add(cert);
-            X509Data xd = kif.newX509Data(x509Content);
-            KeyInfo ki = kif.newKeyInfo(Collections.singletonList(xd));
-            //System.err.println("Teste 04 ");
-            // doc.getDocumentElement().removeAttribute("xmlns:ns2");
-            // ((Element)
-            // doc.getDocumentElement().getElementsByTagName("CTe").item(0))
-            // .setAttribute("xmlns", "http://www.portalfiscal.inf.br/CTe");
-
-            // Create a DOM XMLSignatureFactory that will be used to
-            // generate the enveloped signature.
-
-            Reference ref = fac.newReference("#" + id, fac.newDigestMethod(
-                    DigestMethod.SHA1, null), transformList, null, null);
-            //System.err.println("Teste 05 ");
-            // Create the SignedInfo.
-            SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(
-                    CanonicalizationMethod.INCLUSIVE,
-                    (C14NMethodParameterSpec) null), fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
-                    Collections.singletonList(ref));
-
-            // Create the XMLSignature, but don't sign it yet.
-            XMLSignature signature = fac.newXMLSignature(si, ki);
-            // Marshal, generate, and sign the enveloped signature.
-            // Create a DOMSignContext and specify the RSA PrivateKey and
-            // location of the resulting XMLSignature's parent element.
-//            System.err.println(signature.toString());
-//            System.err.println("-- CHAVE PRIVADA --");
-//            System.err.println(privateKey.toString());
-            DOMSignContext dsc = new DOMSignContext(privateKey, doc.getDocumentElement());
-            signature.sign(dsc);
-
-            // Output the resulting document.
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            TransformerFactory tf = TransformerFactory.newInstance();
-            Transformer trans = tf.newTransformer();
-            trans.transform(new DOMSource(doc), new StreamResult(os));
-
-            //this.setControleTransporteXMLAssinada(new StringBuffer(os.toString()));
-            if (!TipoCertificado.equals("A1")) {
-                //Security.removeProvider(p.getName());
-            }
-            return os.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-
-    }
     //
     // Cancelar Nota Fiscal
-
     public String cancelarCTe(String chaveAcesso, String transmitidaProtocoloAutorizacao, String motivoCancelamento) {
         String Resultado = "0";
         try {
@@ -730,10 +551,8 @@ public class transmissoesCTe {
                 }
             } else {
                 if (getTipo().equals("S")) {
-
                     url = new URL("https://hom.CTe.fazenda.gov.br/SCAN/CTeCancelamento2/CTeCancelamento2.asmx");
                 } else {
-
                     if (getEstado().equals("MT")) {
                         url = new URL("https://homologacao.sefaz.mt.gov.br/ctews/services/CteCancelamento");
                     } else if (getEstado().equals("MS")) {
@@ -747,20 +566,9 @@ public class transmissoesCTe {
                     } else if (getEstado().equals("SP")) {
                         url = new URL("https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteCancelamento.asmx");
                     }
-
                 }
-
             }
-            // Realiza a conexao com WebService
             this.buscarDadosCertificado();
-            /**
-             * Xml de Consulta.
-             */
-            String cabecMsgEnvia = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + "<cabecMsg xmlns=\"http://www.portalfiscal.inf.br/cte\" "
-                    + "versao=\"1.02\">" + "<versaoDados>" + getConfiguracaoVersaoAmbiente() + "</versaoDados>"
-                    + "</cabecMsg>";
-
-            //versao=\"1.02\">"
             String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\" ?> "
                     + "<cancCTe xmlns=\"http://www.portalfiscal.inf.br/cte\" versao=\"2.00\">"
                     + "<infCanc Id=\"ID" + chaveAcesso + "\">"
@@ -771,21 +579,17 @@ public class transmissoesCTe {
                     + "<xJust>" + motivoCancelamento + "</xJust> "
                     + "</infCanc>"
                     + "</cancCTe>";
+            CteDadosMsg = this.assinarXml(CteDadosMsg);
+            this.validarXMLCTe(CteDadosMsg, "cancCTe");
 
-            CteDadosMsg = this.assinarCancCTe(getTipoCertificado(), getSenhaCertificado(), CteDadosMsg);
             OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
             CteCancelamentoStub.CteDadosMsg dadosMsg = new CteCancelamentoStub.CteDadosMsg();
             dadosMsg.setExtraElement(ome);
 
             CteCancelamentoStub.CteCabecMsg CteCabecMsg = new CteCancelamentoStub.CteCabecMsg();
-            /**
-             * Código do Estado.
-             */
             CteCabecMsg.setCUF(getEmpresaCodEstado());
-            /**
-             * Versao do XML
-             */
-            CteCabecMsg.setVersaoDados("2.00");
+
+            CteCabecMsg.setVersaoDados(versaoDados);
             CteCancelamentoStub.CteCabecMsgE CteCabecMsgE = new CteCancelamentoStub.CteCabecMsgE();
             CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
 
@@ -799,151 +603,10 @@ public class transmissoesCTe {
         }
         return Resultado;
     }
-    // Assinar Cancelamento Nota Fiscal
-
-    public String assinarInutCTe(String TipoCertificado, String Senha, String XML) throws Exception {
-
-        System.err.println("- Tentando transmissoesControleTransporte.:assinarInutCTe:");
-        try {
-//            setSenhaCertificado() = Senha;
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setNamespaceAware(true);
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            // Document docs = builder.parse(new File(
-            // "c:/xml/430802017886010001735500000000010000030371-CTe.xml"));
-            //System.err.println(getControleTransporteXML());
-            Document doc = builder.parse(new ByteArrayInputStream(XML.getBytes("UTF-8")));
-            //Document doc = builder.parse(new ByteArrayInputStream(getControleTransporteXML().toString().getBytes()));
-            doc.setXmlStandalone(true);
-            doc.getDocumentElement().removeAttribute("xmlns:ns2");
-            //NodeList elements = doc.getElementsByTagName("infCanc");
-            //Node element = doc.getDocumentElement().getFirstChild().getNextSibling();
-            Node element = doc.getDocumentElement().getFirstChild();
-
-            // elements.getLength();
-            Element el = (Element) element;
-            // Element el =
-            // doc.getDocumentElement().getFirstChild().getChildNodes();
-            String id = el.getAttribute("Id");
-
-            // Create a DOM XMLSignatureFactory that will be used to
-            // generate the enveloped signature.            
-            XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
-
-            // Create a Reference to the enveloped document (in this case,
-            // you are signing the whole document, so a URI of "" signifies
-            // that, and also specify the SHA1 digest algorithm and
-            // the ENVELOPED Transform.
-            ArrayList transformList = new ArrayList();
-            TransformParameterSpec tps = null;
-            Transform envelopedTransform = fac.newTransform(Transform.ENVELOPED, tps);
-            Transform c14NTransform = fac.newTransform("http://www.w3.org/TR/2001/REC-xml-c14n-20010315", tps);
-
-            transformList.add(envelopedTransform);
-            transformList.add(c14NTransform);
-            // Load the KeyStore and get the signing key and certificate.
-            KeyStore ks = KeyStore.getInstance("PKCS12");
-            char[] pin;
-
-            Provider p2[];
-
-            configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
-            stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-            //this.buscarDadosCertificado(TipoCertificado, SenhaCertificado);           
-
-            if (getTipoCertificado().equals("A1")) {
-                pin = getSenhaCertificado().toCharArray();
-                ks = KeyStore.getInstance("PKCS12");
-                ks.load(new FileInputStream(getCaminhoCertificadoA1().replace("\\", "\\\\")), pin);
-            } else {
-                configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
-                stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-                Provider p = new sun.security.pkcs11.SunPKCS11(stream);
-                //p = new sun.security.pkcs11.SunPKCS11("SunPKCS11-SmartCard");               
-                // procura e remove o ultimo provider               
-                Security.addProvider(p);
-//                pin = getSenhaCertificado().toCharArray();
-                ks = KeyStore.getInstance("pkcs11");
-                try {
-                    ks.load(null, getSenhaCertificado().toCharArray());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    throw new Exception("*Senha do Certificado Digital esta incorreta ou Certificado inválido.");
-                }
-            }
-
-            KeyStore.PrivateKeyEntry pkEntry = null;
-            Enumeration aliasesEnum = ks.aliases();
-            PrivateKey privateKey = null;
-            while (aliasesEnum.hasMoreElements()) {
-                String alias = (String) aliasesEnum.nextElement();
-                if (ks.isKeyEntry(alias)) {
-                    pkEntry = (KeyStore.PrivateKeyEntry) ks.getEntry(alias, new KeyStore.PasswordProtection(
-                            getSenhaCertificado().toCharArray()));
-                    privateKey = pkEntry.getPrivateKey();
-                    break;
-                }
-            }
-            X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
-            // Create the KeyInfo containing the X509Data.
-            KeyInfoFactory kif = fac.getKeyInfoFactory();
-            List x509Content = new ArrayList();
-            // x509Content.add(cert.getSubjectX500Principal().getName());
-            x509Content.add(cert);
-            X509Data xd = kif.newX509Data(x509Content);
-            KeyInfo ki = kif.newKeyInfo(Collections.singletonList(xd));
-            // doc.getDocumentElement().removeAttribute("xmlns:ns2");
-            // ((Element)
-            // doc.getDocumentElement().getElementsByTagName("CTe").item(0))
-            // .setAttribute("xmlns", "http://www.portalfiscal.inf.br/CTe");
-
-            // Create a DOM XMLSignatureFactory that will be used to
-            // generate the enveloped signature.
-
-            Reference ref = fac.newReference("#" + id, fac.newDigestMethod(
-                    DigestMethod.SHA1, null), transformList, null, null);
-            // Create the SignedInfo.
-            SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(
-                    CanonicalizationMethod.INCLUSIVE,
-                    (C14NMethodParameterSpec) null), fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
-                    Collections.singletonList(ref));
-
-            // Create the XMLSignature, but don't sign it yet.
-
-            XMLSignature signature = fac.newXMLSignature(si, ki);
-            // Marshal, generate, and sign the enveloped signature.
-            // Create a DOMSignContext and specify the RSA PrivateKey and
-            // location of the resulting XMLSignature's parent element.
-            // System.err.println(signature.toString());         
-            DOMSignContext dsc = new DOMSignContext(privateKey, doc.getDocumentElement());
-            signature.sign(dsc);
-
-            // Output the resulting document.
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            TransformerFactory tf = TransformerFactory.newInstance();
-            Transformer trans = tf.newTransformer();
-            trans.transform(new DOMSource(doc), new StreamResult(os));
-
-            //this.setControleTransporteXMLAssinada(new StringBuffer(os.toString()));
-            if (!TipoCertificado.equals("A1")) {
-                //Security.removeProvider(p.getName());
-            }
-            System.err.println("- transmissoesControleTransporte.:assinarInutCTe: retorno:" + os.toString());
-            return os.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("- +transmissoesControleTransporte.:assinarInutCTe: retorno:" + e.toString());
-            return "";
-        }
-
-    }
 
     // Inutilizar Nota Fiscal
     public String inutilizaCTe(String numeracaoInicial, String numeracaoFinal, String motivoInutilizacao) {
-
         String Resultado = "0";
-        System.err.println("- Tentando transmissoesControleTransporte.:inutilizaCTe ");
-
         try {
 
             URL url = null;
@@ -983,7 +646,95 @@ public class transmissoesCTe {
                         url = new URL("https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteInutilizacao.asmx");
                     }
                 }
+            }
+            // Realiza a conexao com WebService
+            this.buscarDadosCertificado();
+            /**
+             * Xml de Consulta.
+             */
+            String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\" ?> "
+                    + "<inutCTe xmlns=\"http://www.portalfiscal.inf.br/cte\" versao=\"" + getConfiguracaoVersaoAmbiente() + "\">"
+                    + "<infInut Id=\"ID" + getEmpresaCodEstado() + (new SimpleDateFormat("yy").format(new Date())) + getEmpresaCnpj().replace(".", "").replace("-", "").replace("/", "").trim() + getConfiguracaoModeloNf() + FormatacaoDados.FormataString(getConfiguracaoSerieNf(), 3, "0", "E") + FormatacaoDados.FormataString(numeracaoInicial, 9, "0", "E") + FormatacaoDados.FormataString(numeracaoFinal, 9, "0", "E") + "\">"
+                    + "<tpAmb>" + getConfiguracaoAmbienteEmissaoNf() + "</tpAmb>"
+                    + "<xServ>INUTILIZAR</xServ>"
+                    + "<cUF>" + getEmpresaCodEstado() + "</cUF>"
+                    + "<ano>" + new SimpleDateFormat("yy").format(new Date()) + "</ano>"
+                    + "<CNPJ>" + getEmpresaCnpj().replace(".", "").replace("-", "").replace("/", "").trim() + "</CNPJ>"
+                    + "<mod>" + getConfiguracaoModeloNf() + "</mod>"
+                    + "<serie>" + getConfiguracaoSerieNf() + "</serie>"
+                    + "<nCTIni>" + numeracaoInicial + "</nCTIni>"
+                    + "<nCTFin>" + numeracaoFinal + "</nCTFin>"
+                    + "<xJust>" + motivoInutilizacao + "</xJust>"
+                    + "</infInut>"
+                    + "</inutCTe>";
+            CteDadosMsg = this.assinarXml(CteDadosMsg);
 
+            OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
+            CteInutilizacaoStub.CteDadosMsg dadosMsg = new CteInutilizacaoStub.CteDadosMsg();
+            dadosMsg.setExtraElement(ome);
+
+            CteInutilizacaoStub.CteCabecMsg CteCabecMsg = new CteInutilizacaoStub.CteCabecMsg();
+            /**
+             * Código do Estado.
+             */
+            CteCabecMsg.setCUF(getEmpresaCodEstado());
+            /**
+             * Versao do XML
+             */
+            CteCabecMsg.setVersaoDados(versaoDados);
+            CteInutilizacaoStub.CteCabecMsgE CteCabecMsgE = new CteInutilizacaoStub.CteCabecMsgE();
+            CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
+            CteInutilizacaoStub stub = new CteInutilizacaoStub(url.toString());
+            CteInutilizacaoStub.CteInutilizacaoCTResult result = stub.cteInutilizacaoCT(dadosMsg, CteCabecMsgE);
+
+            Resultado = result.getExtraElement().toString();
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+
+        return Resultado;
+    }
+
+    public String statusServico(String TipoCertificado, String senhaCertificado) {
+        System.err.println("- transmissoesControleTransporte.:statusServico ");
+        String Resultado = "0";
+
+        try {
+            String codigoDoEstado = "";
+            URL url = null;
+            if (getConfiguracaoAmbienteEmissaoNf().equals("2")) {
+
+                url = new URL("https://www.scan.fazenda.gov.br/CTeStatusServico2/CTeStatusServico2.asmx");
+
+                if (getEstado().equals("MG")) {
+                    url = new URL("https://hcte.fazenda.mg.gov.br/cte/services/CteStatusServico ");
+                } else if (getEstado().equals("MS")) {
+                    url = new URL("https://homologacao.cte.ms.gov.br/cteWEB/CteStatusServico.asmx");
+                } else if (getEstado().equals("MT")) {
+                    url = new URL("https://homologacao.sefaz.mt.gov.br/ctews/services/CteStatusServico");
+                } else if (getEstado().equals("PR")) {
+                    url = new URL("https://homologacao.cte.fazenda.pr.gov.br/cte/CteStatusServico");
+                } else if (getEstado().equals("RS")) {
+                    url = new URL("https://homologacao.cte.sefaz.rs.gov.br/ws/cteStatusServico/cteStatusServico.asmx");
+                } else if (getEstado().equals("SP")) {
+                    url = new URL("https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx");
+                }
+            } else {
+                url = new URL("https://www.scan.fazenda.gov.br/CTeStatusServico2/CTeStatusServico2.asmx");
+
+                if (getEstado().equals("MG")) {
+                    url = new URL("https://cte.fazenda.mg.gov.br/cte/services/CteStatusServico ");
+                } else if (getEstado().equals("MS")) {
+                    url = new URL("https://producao.cte.ms.gov.br/cteWEB/CteStatusServico.asmx");
+                } else if (getEstado().equals("MT")) {
+                    url = new URL("https://cte.sefaz.mt.gov.br/ctews/services/CteStatusServico");
+                } else if (getEstado().equals("PR")) {
+                    url = new URL("https://cte.fazenda.pr.gov.br/cte/CteStatusServico");
+                } else if (getEstado().equals("RS")) {
+                    url = new URL("https://cte.sefaz.rs.gov.br/ws/cteStatusServico/cteStatusServico.asmx");
+                } else if (getEstado().equals("SP")) {
+                    url = new URL("https://nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx");
+                }
             }
             // Realiza a conexao com WebService
             try {
@@ -991,267 +742,39 @@ public class transmissoesCTe {
                 /**
                  * Xml de Consulta.
                  */
-                String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\" ?> "
-                        + "<inutCTe xmlns=\"http://www.portalfiscal.inf.br/cte\" versao=\"" + getConfiguracaoVersaoAmbiente() + "\">"
-                        + "<infInut Id=\"ID" + getEmpresaCodEstado() + (new SimpleDateFormat("yy").format(new Date())) + getEmpresaCnpj().replace(".", "").replace("-", "").replace("/", "").trim() + getConfiguracaoModeloNf() + _Funcoes.FormataString(getConfiguracaoSerieNf(), 3, "0", "E") + _Funcoes.FormataString(numeracaoInicial, 9, "0", "E") + _Funcoes.FormataString(numeracaoFinal, 9, "0", "E") + "\">"
+                String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+                        + "<consStatServ xmlns=\"http://www.portalfiscal.inf.br/cte\" " + " versao=\"" + getConfiguracaoVersaoAmbiente() + "\">"
                         + "<tpAmb>" + getConfiguracaoAmbienteEmissaoNf() + "</tpAmb>"
-                        + "<xServ>INUTILIZAR</xServ>"
                         + "<cUF>" + getEmpresaCodEstado() + "</cUF>"
-                        + "<ano>" + new SimpleDateFormat("yy").format(new Date()) + "</ano>"
-                        + "<CNPJ>" + getEmpresaCnpj().replace(".", "").replace("-", "").replace("/", "").trim() + "</CNPJ>"
-                        + "<mod>" + getConfiguracaoModeloNf() + "</mod>"
-                        + "<serie>" + getConfiguracaoSerieNf() + "</serie>"
-                        + "<nCTIni>" + numeracaoInicial + "</nCTIni>"
-                        + "<nCTFin>" + numeracaoFinal + "</nCTFin>"
-                        + "<xJust>" + motivoInutilizacao + "</xJust>"
-                        + "</infInut>"
-                        + "</inutCTe>";
-                try {
-                    CteDadosMsg = this.assinarInutCTe(getTipoCertificado(), getSenhaCertificado(), CteDadosMsg);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    System.err.println("- +transmissoesControleTransporte.:inutilizaCTe Retorno:" + e.toString());
-                }
+                        + "<xServ>STATUS</xServ>"
+                        + "</consStatServ>";
 
                 OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
-                CteInutilizacaoStub.CteDadosMsg dadosMsg = new CteInutilizacaoStub.CteDadosMsg();
+                CteStatusServicoStub.CteDadosMsg dadosMsg = new CteStatusServicoStub.CteDadosMsg();
                 dadosMsg.setExtraElement(ome);
 
-                CteInutilizacaoStub.CteCabecMsg CteCabecMsg = new CteInutilizacaoStub.CteCabecMsg();
+                CteStatusServicoStub.CteCabecMsg CteCabecMsg = new CteStatusServicoStub.CteCabecMsg();
                 /**
                  * Código do Estado.
                  */
                 CteCabecMsg.setCUF(getEmpresaCodEstado());
-                /**
-                 * Versao do XML
+                /* Versao do XML
                  */
                 CteCabecMsg.setVersaoDados("2.00");
-                CteInutilizacaoStub.CteCabecMsgE CteCabecMsgE = new CteInutilizacaoStub.CteCabecMsgE();
+                CteStatusServicoStub.CteCabecMsgE CteCabecMsgE = new CteStatusServicoStub.CteCabecMsgE();
                 CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
 
-                CteInutilizacaoStub stub = new CteInutilizacaoStub(url.toString());
-                CteInutilizacaoStub.CteInutilizacaoCTResult result = stub.cteInutilizacaoCT(dadosMsg, CteCabecMsgE);
+                CteStatusServicoStub stub = new CteStatusServicoStub(url.toString());
+                CteStatusServicoStub.CteStatusServicoCTResult result = stub.cteStatusServicoCT(dadosMsg, CteCabecMsgE);
 
-                Resultado = result.getExtraElement().toString();
-                System.err.println("- .transmissoesControleTransporte.:inutilizaCTe Retorno:" + result.getExtraElement().toString());
+                Resultado = (result.getExtraElement().toString());
 
             } catch (Exception e) {
                 e.printStackTrace();
-                System.err.println("- *transmissoesControleTransporte.:inutilizaCTe Retorno:" + e.toString());
             }
         } catch (Exception e) {
-            System.err.println(e.toString());
-            System.err.println("- -transmissoesControleTransporte.:inutilizaCTe Retorno:" + e.toString());
-
         }
-
         return Resultado;
-    }
-    // Assinar Inutilizacao Nota Fiscal
-
-    public String assinarInutCTe() throws Exception {
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setNamespaceAware(true);
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(new ByteArrayInputStream(XML.getBytes("UTF-8")));
-            doc.setXmlStandalone(true);
-            doc.getDocumentElement().removeAttribute("xmlns:ns2");
-            Node element = doc.getDocumentElement().getFirstChild();
-            Element el = (Element) element;
-            String id = el.getAttribute("Id");
-            XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
-            ArrayList transformList = new ArrayList();
-            TransformParameterSpec tps = null;
-            Transform envelopedTransform = fac.newTransform(Transform.ENVELOPED, tps);
-            Transform c14NTransform = fac.newTransform("http://www.w3.org/TR/2001/REC-xml-c14n-20010315", tps);
-            transformList.add(envelopedTransform);
-            transformList.add(c14NTransform);
-            KeyStore ks = KeyStore.getInstance("PKCS12");
-            char[] pin;
-            p = null;
-            Provider p2[];
-            if (getTipoCertificado().equals("A1")) {
-                pin = getSenhaCertificado().toCharArray();
-                ks = KeyStore.getInstance("PKCS12");
-                ks.load(new FileInputStream(getCaminhoCertificadoA1().replace("\\", "\\\\")), pin);
-            } else {
-                configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
-                stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-                Provider p = new sun.security.pkcs11.SunPKCS11(stream);
-                Security.addProvider(p);
-                ks = KeyStore.getInstance("pkcs11");
-                try {
-                    ks.load(null, getSenhaCertificado().toCharArray());
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-            KeyStore.PrivateKeyEntry pkEntry = null;
-            Enumeration aliasesEnum = ks.aliases();
-            PrivateKey privateKey = null;
-            while (aliasesEnum.hasMoreElements()) {
-                String alias = (String) aliasesEnum.nextElement();
-                if (ks.isKeyEntry(alias)) {
-                    pkEntry = (KeyStore.PrivateKeyEntry) ks.getEntry(alias, new KeyStore.PasswordProtection(getSenhaCertificado().toCharArray()));
-                    privateKey = pkEntry.getPrivateKey();
-                    break;
-                }
-            }
-            X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
-            KeyInfoFactory kif = fac.getKeyInfoFactory();
-            List x509Content = new ArrayList();
-            x509Content.add(cert);
-            X509Data xd = kif.newX509Data(x509Content);
-            KeyInfo ki = kif.newKeyInfo(Collections.singletonList(xd));
-            Reference ref = fac.newReference("#" + id, fac.newDigestMethod(
-                    DigestMethod.SHA1, null), transformList, null, null);
-            SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(
-                    CanonicalizationMethod.INCLUSIVE,
-                    (C14NMethodParameterSpec) null), fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
-                    Collections.singletonList(ref));
-            XMLSignature signature = fac.newXMLSignature(si, ki);
-            System.err.println(signature.toString());
-            DOMSignContext dsc = new DOMSignContext(privateKey, doc.getDocumentElement());
-            signature.sign(dsc);
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            TransformerFactory tf = TransformerFactory.newInstance();
-            Transformer trans = tf.newTransformer();
-            trans.transform(new DOMSource(doc), new StreamResult(os));
-            return os.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
-
-    public String assinarRaiz_CartaCorrecao() throws Exception {
-        System.err.println("- Tentando transmissoesControleTransporte.:assinarRaiz_CartaCorrecao ");
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setNamespaceAware(true);
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            // Document docs = builder.parse(new File(
-            // "c:/xml/430802017886010001735500000000010000030371-CTe.xml"));
-            //System.err.println(getControleTransporteXML());            
-            Document doc = builder.parse(new ByteArrayInputStream(XML.getBytes("UTF-8")));
-            //Document doc = builder.parse(new ByteArrayInputStream(getControleTransporteXML().toString().getBytes()));
-            doc.setXmlStandalone(true);
-            doc.getDocumentElement().removeAttribute("xmlns:ns2");
-            //NodeList elements = doc.getElementsByTagName("infCanc");
-            //Node element = doc.getDocumentElement().getFirstChild().getNextSibling();
-            NodeList elements = doc.getElementsByTagName("iCTevento");
-            // elements.getLength();            
-            //Element el = (Element) element;
-            Element el = (Element) elements.item(0);
-            // Element el =
-            // doc.getDocumentElement().getFirstChild().getChildNodes();
-            String id = el.getAttribute("Id");
-
-            // Create a DOM XMLSignatureFactory that will be used to
-            // generate the enveloped signature.        
-            XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
-
-            // Create a Reference to the enveloped document (in this case,
-            // you are signing the whole document, so a URI of "" signifies
-            // that, and also specify the SHA1 digest algorithm and
-            // the ENVELOPED Transform.
-            ArrayList transformList = new ArrayList();
-            TransformParameterSpec tps = null;
-            Transform envelopedTransform = fac.newTransform(Transform.ENVELOPED, tps);
-            Transform c14NTransform = fac.newTransform("http://www.w3.org/TR/2001/REC-xml-c14n-20010315", tps);
-
-            transformList.add(envelopedTransform);
-            transformList.add(c14NTransform);
-            // Load the KeyStore and get the signing key and certificate.
-            KeyStore ks = KeyStore.getInstance("PKCS12");
-            char[] pin;
-            p = null;
-            configuracaoCertificadoA3 = getConfiguracaoCertificadoA3().replace("<br>", "\n");
-            stream = new ByteArrayInputStream(configuracaoCertificadoA3.getBytes());
-
-            if (getTipoCertificado().equals("A1")) {
-                pin = getSenhaCertificado().toCharArray();
-                ks = KeyStore.getInstance("PKCS12");
-                ks.load(new FileInputStream(getCaminhoCertificadoA1().replace("\\", "\\\\")), pin);
-            } else {
-
-                p = new sun.security.pkcs11.SunPKCS11(stream);
-                Security.addProvider(p);
-                ks = KeyStore.getInstance("pkcs11");
-                try {
-                    ks.load(null, getSenhaCertificado().toCharArray());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    throw new Exception("-++ Senha do Certificado Digital esta incorreta ou Certificado inválido.");
-                }
-            }
-
-
-            KeyStore.PrivateKeyEntry pkEntry = null;
-            Enumeration aliasesEnum = ks.aliases();
-            PrivateKey privateKey = null;
-
-
-            while (aliasesEnum.hasMoreElements()) {
-                String alias = (String) aliasesEnum.nextElement();
-                if (ks.isKeyEntry(alias)) {
-                    pkEntry = (KeyStore.PrivateKeyEntry) ks.getEntry(alias, new KeyStore.PasswordProtection(
-                            getSenhaCertificado().toCharArray()));
-                    privateKey = pkEntry.getPrivateKey();
-                    break;
-                }
-            }
-            X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
-            // Create the KeyInfo containing the X509Data.
-            KeyInfoFactory kif = fac.getKeyInfoFactory();
-            List x509Content = new ArrayList();
-            // x509Content.add(cert.getSubjectX500Principal().getName());
-            x509Content.add(cert);
-            X509Data xd = kif.newX509Data(x509Content);
-            KeyInfo ki = kif.newKeyInfo(Collections.singletonList(xd));
-            // doc.getDocumentElement().removeAttribute("xmlns:ns2");
-            // ((Element)
-            // doc.getDocumentElement().getElementsByTagName("CTe").item(0))
-            // .setAttribute("xmlns", "http://www.portalfiscal.inf.br/CTe");
-
-            // Create a DOM XMLSignatureFactory that will be used to
-            // generate the enveloped signature.
-
-            Reference ref = fac.newReference("#" + id, fac.newDigestMethod(
-                    DigestMethod.SHA1, null), transformList, null, null);
-            // Create the SignedInfo.
-            SignedInfo si = fac.newSignedInfo(fac.newCanonicalizationMethod(
-                    CanonicalizationMethod.INCLUSIVE,
-                    (C14NMethodParameterSpec) null), fac.newSignatureMethod(SignatureMethod.RSA_SHA1, null),
-                    Collections.singletonList(ref));
-
-            // Create the XMLSignature, but don't sign it yet.
-            XMLSignature signature = fac.newXMLSignature(si, ki);
-            // Marshal, generate, and sign the enveloped signature.
-            // Create a DOMSignContext and specify the RSA PrivateKey and
-            // location of the resulting XMLSignature's parent element.
-//            System.err.println(signature.toString());
-//            System.err.println("-- CHAVE PRIVADA --");
-//            System.err.println(privateKey.toString());
-            DOMSignContext dsc = new DOMSignContext(privateKey, doc.getDocumentElement());
-            signature.sign(dsc);
-
-            // Output the resulting document.
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            TransformerFactory tf = TransformerFactory.newInstance();
-            Transformer trans = tf.newTransformer();
-            trans.transform(new DOMSource(doc), new StreamResult(os));
-
-            //this.setControleTransporteXMLAssinada(new StringBuffer(os.toString()));
-            if (!getTipoCertificado().equals("A1")) {
-                Security.removeProvider(p.getName());
-            }
-            return os.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
     }
 
     public void buscarDadosConfiguracaoEmpresa() {
@@ -1362,91 +885,6 @@ public class transmissoesCTe {
             retorno = e.toString();
         }
         return retorno;
-    }
-
-    public String statusServico(String TipoCertificado, String senhaCertificado) {
-        System.err.println("- transmissoesControleTransporte.:statusServico ");
-        String Resultado = "0";
-
-        try {
-            String codigoDoEstado = "";
-            URL url = null;
-            if (getConfiguracaoAmbienteEmissaoNf().equals("2")) {
-
-                url = new URL("https://www.scan.fazenda.gov.br/CTeStatusServico2/CTeStatusServico2.asmx");
-
-                if (getEstado().equals("MG")) {
-                    url = new URL("https://hcte.fazenda.mg.gov.br/cte/services/CteStatusServico ");
-                } else if (getEstado().equals("MS")) {
-                    url = new URL("https://homologacao.cte.ms.gov.br/cteWEB/CteStatusServico.asmx");
-                } else if (getEstado().equals("MT")) {
-                    url = new URL("https://homologacao.sefaz.mt.gov.br/ctews/services/CteStatusServico");
-                } else if (getEstado().equals("PR")) {
-                    url = new URL("https://homologacao.cte.fazenda.pr.gov.br/cte/CteStatusServico");
-                } else if (getEstado().equals("RS")) {
-                    url = new URL("https://homologacao.cte.sefaz.rs.gov.br/ws/cteStatusServico/cteStatusServico.asmx");
-                } else if (getEstado().equals("SP")) {
-                    url = new URL("https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx");
-                }
-            } else {
-                url = new URL("https://www.scan.fazenda.gov.br/CTeStatusServico2/CTeStatusServico2.asmx");
-
-                if (getEstado().equals("MG")) {
-                    url = new URL("https://cte.fazenda.mg.gov.br/cte/services/CteStatusServico ");
-                } else if (getEstado().equals("MS")) {
-                    url = new URL("https://producao.cte.ms.gov.br/cteWEB/CteStatusServico.asmx");
-                } else if (getEstado().equals("MT")) {
-                    url = new URL("https://cte.sefaz.mt.gov.br/ctews/services/CteStatusServico");
-                } else if (getEstado().equals("PR")) {
-                    url = new URL("https://cte.fazenda.pr.gov.br/cte/CteStatusServico");
-                } else if (getEstado().equals("RS")) {
-                    url = new URL("https://cte.sefaz.rs.gov.br/ws/cteStatusServico/cteStatusServico.asmx");
-                } else if (getEstado().equals("SP")) {
-                    url = new URL("https://nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx");
-                }
-            }
-            // Realiza a conexao com WebService
-            try {
-                this.buscarDadosCertificado();
-                /**
-                 * Xml de Consulta.
-                 */
-                String CteDadosMsg = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-                        + "<consStatServ xmlns=\"http://www.portalfiscal.inf.br/cte\" " + " versao=\"" + getConfiguracaoVersaoAmbiente() + "\">"
-                        + "<tpAmb>" + getConfiguracaoAmbienteEmissaoNf() + "</tpAmb>"
-                        + "<cUF>" + getEmpresaCodEstado() + "</cUF>"
-                        + "<xServ>STATUS</xServ>"
-                        + "</consStatServ>";
-
-                OMElement ome = AXIOMUtil.stringToOM(CteDadosMsg);
-                CteStatusServicoStub.CteDadosMsg dadosMsg = new CteStatusServicoStub.CteDadosMsg();
-                dadosMsg.setExtraElement(ome);
-
-                CteStatusServicoStub.CteCabecMsg CteCabecMsg = new CteStatusServicoStub.CteCabecMsg();
-                /**
-                 * Código do Estado.
-                 */
-                CteCabecMsg.setCUF(getEmpresaCodEstado());
-                /* Versao do XML
-                 */
-                CteCabecMsg.setVersaoDados("2.00");
-                CteStatusServicoStub.CteCabecMsgE CteCabecMsgE = new CteStatusServicoStub.CteCabecMsgE();
-                CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
-
-                CteStatusServicoStub stub = new CteStatusServicoStub(url.toString());
-                CteStatusServicoStub.CteStatusServicoCTResult result = stub.cteStatusServicoCT(dadosMsg, CteCabecMsgE);
-
-                Resultado = (result.getExtraElement().toString());
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.err.println("- +transmissoesControleTransporte.:statusServico Retorno" + e.toString());
-            }
-        } catch (Exception e) {
-            System.err.println("- -transmissoesControleTransporte.:statusServico Retorno" + e.toString());
-        }
-        System.err.println("- *transmissoesControleTransporte.:statusServico Retorno" + Resultado);
-        return Resultado;
     }
 
     public String getXML() {
@@ -1561,16 +999,10 @@ public class transmissoesCTe {
         this.configuracaoSerieNf = confSerieNf;
     }
 
-    /**
-     * @return the ProtocoloAdicionado
-     */
     public boolean isProtocoloAdicionado() {
         return ProtocoloAdicionado;
     }
 
-    /**
-     * @param ProtocoloAdicionado the ProtocoloAdicionado to set
-     */
     public void setProtocoloAdicionado(boolean ProtocoloAdicionado) {
         this.ProtocoloAdicionado = ProtocoloAdicionado;
     }
@@ -1675,13 +1107,14 @@ public class transmissoesCTe {
             //TCTE.assinarControleTransporte();
 
             System.out.println(s);
-            System.out.println(TCTE.validarXMLControlesTransporte());
-//            System.out.println(TCTE.getXMLAssinado());
-//            TCTE.setConfiguracaoAmbienteEmissaoNf("1");
-//            TCTE.setEstado("MG");
-//            TCTE.setEmpresaCodEstado("31");
-//            TCTE.buscarDadosConfiguracaoEmpresa();
-//            TCTE.enviarControlesTransporte(1);
+            //System.out.println(TCTE.validarXMLControlesTransporte());
+
+            System.out.println(TCTE.getXMLAssinado());
+            TCTE.setConfiguracaoAmbienteEmissaoNf("1");
+            TCTE.setEstado("MG");
+            TCTE.setEmpresaCodEstado("31");
+            TCTE.buscarDadosConfiguracaoEmpresa();
+            TCTE.enviarEnviCTe(1);
             //
         } catch (Exception ex) {
             ex.printStackTrace();

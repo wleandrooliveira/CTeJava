@@ -178,14 +178,9 @@ public class SocketFactoryDinamico implements ProtocolSocketFactory {
     public void setFileCacerts(String fileCacerts) {  
         this.fileCacerts = fileCacerts;  
     }  
-  
-    /** 
-     * Log Error. 
-     * @param log 
-     */  
+
     private static void error(String log) {  
         System.out.println("ERROR: " + log);  
-    }  
-  
+    }
 }
 

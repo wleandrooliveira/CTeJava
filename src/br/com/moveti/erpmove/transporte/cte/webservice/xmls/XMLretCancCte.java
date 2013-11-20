@@ -4,7 +4,7 @@
  */
 package br.com.moveti.erpmove.transporte.cte.webservice.xmls;
 
-import br.com.moveti.erpmove.transporte.cte.estrutura.Signature;
+import br.com.moveti.erpmove.transporte.cte.model.Signature;
 import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.infCanc;
 import br.com.moveti.erpmove.transporte.cte.estrutura.retornos.retCancCTe;
 import com.thoughtworks.xstream.XStream;
