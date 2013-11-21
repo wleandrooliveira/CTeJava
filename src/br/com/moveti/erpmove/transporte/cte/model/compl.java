@@ -21,16 +21,16 @@ public class compl {
     private String xCaracSer;
     @XStreamAlias("xEmi")
     private String xEmi;
-    private fluxo fluxo = new fluxo();
-    private Entrega Entrega = new Entrega();
+    private fluxo fluxo;
+    private Entrega Entrega;
     @XStreamAlias("origCalc")
     private String origCalc;
     @XStreamAlias("destCalc")
     private String destCalc;
     @XStreamAlias("xObs")
     private String xObs;
-    private List<ObsCont> ObsCont = new LinkedList<ObsCont>();
-    private List<ObsFisco> ObsFisco = new LinkedList<ObsFisco>();
+    private List<ObsCont> ObsCont;
+    private List<ObsFisco> ObsFisco;
 
     /**
      * Descricao: Característica adicional do transporte

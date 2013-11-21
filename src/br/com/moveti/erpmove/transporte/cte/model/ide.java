@@ -65,7 +65,7 @@ public class ide {
     @XStreamAlias("UFIni")
     private String UFIni;
     @XStreamAlias("cMunFim")
-    private String CMunFim;
+    private String cMunFim;
     @XStreamAlias("xMunFim")
     private String xMunFim;
     @XStreamAlias("UFFim")
@@ -78,8 +78,8 @@ public class ide {
     private toma03 toma03;
     //= new toma03();
     @XStreamAlias("toma04")
-    private toma04 toma04;
-    //= new toma04();
+    private toma4 toma04;
+    //= new toma4();
 
     /**
      * Descricao: Código da UF do emitente do CT-e.
@@ -392,8 +392,8 @@ public class ide {
      * Tamanho: 7
      * @param 
      */
-    public void setCMunFim(String CMunFim) {
-        this.CMunFim = CMunFim;
+    public void setcMunFim(String cMunFim) {
+        this.cMunFim = cMunFim;
     }
 
     /**
@@ -455,7 +455,7 @@ public class ide {
      * Tamanho: 
      * @param 
      */
-    public void setToma04(br.com.moveti.erpmove.transporte.cte.model.toma04 toma04) {
+    public void setToma04(br.com.moveti.erpmove.transporte.cte.model.toma4 toma04) {
         this.toma04 = toma04;
     }
 
@@ -463,8 +463,8 @@ public class ide {
         return CFOP;
     }
 
-    public String getCMunFim() {
-        return CMunFim;
+    public String getcMunFim() {
+        return cMunFim;
     }
 
     public String getUFEnv() {
@@ -547,7 +547,7 @@ public class ide {
         return toma03;
     }
 
-    public br.com.moveti.erpmove.transporte.cte.model.toma04 getToma04() {
+    public br.com.moveti.erpmove.transporte.cte.model.toma4 getToma04() {
         return toma04;
     }
 

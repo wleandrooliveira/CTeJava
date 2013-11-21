@@ -4,6 +4,7 @@
  */
 package br.com.moveti.erpmove.transporte.cte.model;
 
+import br.com.moveti.erpmove.transporte.cte.model.enuns.TipoPeriodoHora;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**

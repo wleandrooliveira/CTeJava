@@ -27,7 +27,11 @@ public class ICMS {
      * @param 
      */
     public void setICMS00(br.com.moveti.erpmove.transporte.cte.model.ICMS00 ICMS00) {
-        this.ICMS00 = ICMS00;
+        if (ICMS00.getCST() == null) {
+            this.ICMS00 = null;
+        } else {
+            this.ICMS00 = ICMS00;
+        }
     }
 
     /**
@@ -36,7 +40,11 @@ public class ICMS {
      * @param 
      */
     public void setICMS20(br.com.moveti.erpmove.transporte.cte.model.ICMS20 ICMS20) {
-        this.ICMS20 = ICMS20;
+        if (ICMS20.getCST() == null) {
+            this.ICMS20 = null;
+        } else {
+            this.ICMS20 = ICMS20;
+        }
     }
 
     /**
@@ -45,7 +53,11 @@ public class ICMS {
      * @param 
      */
     public void setICMS45(br.com.moveti.erpmove.transporte.cte.model.ICMS45 ICMS45) {
-        this.ICMS45 = ICMS45;
+        if (ICMS45.getCST() == null) {
+            this.ICMS45 = null;
+        } else {
+            this.ICMS45 = ICMS45;
+        }
     }
 
     /**
@@ -54,7 +66,11 @@ public class ICMS {
      * @param 
      */
     public void setICMS60(br.com.moveti.erpmove.transporte.cte.model.ICMS60 ICMS60) {
-        this.ICMS60 = ICMS60;
+        if (ICMS60.getCST() == null) {
+            this.ICMS60 = null;
+        } else {
+            this.ICMS60 = ICMS60;
+        }
     }
 
     /**
@@ -63,7 +79,11 @@ public class ICMS {
      * @param 
      */
     public void setICMS90(br.com.moveti.erpmove.transporte.cte.model.ICMS90 ICMS90) {
-        this.ICMS90 = ICMS90;
+        if (ICMS90.getCST() == null) {
+            this.ICMS90 = null;
+        } else {
+            this.ICMS90 = ICMS90;
+        }
     }
 
     /**
@@ -72,7 +92,11 @@ public class ICMS {
      * @param 
      */
     public void setICMSOutraUF(br.com.moveti.erpmove.transporte.cte.model.ICMSOutraUF ICMSOutraUF) {
-        this.ICMSOutraUF = ICMSOutraUF;
+        if (ICMSOutraUF.getCST() == null) {
+            this.ICMSOutraUF = null;
+        } else {
+            this.ICMSOutraUF = ICMSOutraUF;
+        }
     }
 
     /**
@@ -81,6 +105,38 @@ public class ICMS {
      * @param 
      */
     public void setICMSSN(br.com.moveti.erpmove.transporte.cte.model.ICMSSN ICMSSN) {
-        this.ICMSSN = ICMSSN;
+        if (ICMSSN.getIndSN() == null) {
+            this.ICMSSN = null;
+        } else {
+            this.ICMSSN = ICMSSN;
+        }
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.model.ICMS00 getICMS00() {
+        return ICMS00;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.model.ICMS20 getICMS20() {
+        return ICMS20;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.model.ICMS45 getICMS45() {
+        return ICMS45;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.model.ICMS60 getICMS60() {
+        return ICMS60;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.model.ICMS90 getICMS90() {
+        return ICMS90;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.model.ICMSOutraUF getICMSOutraUF() {
+        return ICMSOutraUF;
+    }
+
+    public br.com.moveti.erpmove.transporte.cte.model.ICMSSN getICMSSN() {
+        return ICMSSN;
     }
 }

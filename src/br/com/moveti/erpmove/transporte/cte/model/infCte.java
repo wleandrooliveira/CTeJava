@@ -21,19 +21,19 @@ public class infCte {
     @XStreamAsAttribute
     private String Id;
     
-    private ide ide = new ide();
-    private compl compl = new compl();
-    private emit emit = new emit();
-    private rem rem = new rem();
-    private exped exped = new exped();
-    private receb receb = new receb();
-    private dest dest = new dest();
-    private vPrest vPrest = new vPrest();
-    private imp imp = new imp();
+    private ide ide;
+    private compl compl;
+    private emit emit;
+    private rem rem;
+    private exped exped;
+    private receb receb;
+    private dest dest;
+    private vPrest vPrest;
+    private imp imp;
     
-    private infCTeNorm infCTeNorm = new infCTeNorm();
-    private infCteComp infCteComp = new infCteComp();
-    private infCteAnu infCteAnu = new infCteAnu();
+    private infCTeNorm infCTeNorm;
+    private infCteComp infCteComp;
+    private infCteAnu infCteAnu;
     
 
     /**

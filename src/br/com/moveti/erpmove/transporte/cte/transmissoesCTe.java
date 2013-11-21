@@ -282,7 +282,7 @@ public class transmissoesCTe {
             } else if ("cancCTe".equals(_tipoXml)) {
                 arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/tiposGeralCTe_v2.00.xsd").toURI());
             } else {
-                arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/cte_v2.00.xsd").toURI());
+                arquivo = new File(getClass().getClassLoader().getResource("br/com/moveti/erpmove/transporte/cte/schemas/cteTiposBasico_v2.00.xsd").toURI());
             }
             //Parse an XML document into a DOM tree.
             DocumentBuilderFactory DBF = DocumentBuilderFactory.newInstance();

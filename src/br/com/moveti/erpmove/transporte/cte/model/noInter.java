@@ -4,6 +4,7 @@
  */
 package br.com.moveti.erpmove.transporte.cte.model;
 
+import br.com.moveti.erpmove.transporte.cte.model.enuns.TipoPeriodoHora;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
@@ -14,7 +15,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class noInter {
 
     @XStreamAlias("tpHor")
-    private String tpHor;
+    private TipoPeriodoHora tpHor;
     @XStreamAlias("hIni")
     private String hIni;
     @XStreamAlias("hFim")
@@ -27,7 +28,7 @@ public class noInter {
      * Tamanho: 1
      * @param 
      */
-    public void setTpHor(String tpHor) {
+    public void setTpHor(TipoPeriodoHora tpHor) {
         this.tpHor = tpHor;
     }
 
@@ -61,7 +62,7 @@ public class noInter {
         return hIni;
     }
 
-    public String getTpHor() {
+    public TipoPeriodoHora getTpHor() {
         return tpHor;
     }
 }

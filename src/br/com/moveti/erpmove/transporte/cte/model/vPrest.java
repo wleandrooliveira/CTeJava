@@ -21,7 +21,7 @@ public class vPrest {
     @XStreamAlias("vRec")
     private Double vRec;
     @XStreamImplicit(itemFieldName = "Comp")
-    private List<Comp> Comp = new ArrayList<Comp>();
+    private List<Comp> Comp;
 
     /**
      * Descricao: Valor Total da Prestação do Serviço

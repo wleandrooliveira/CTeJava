@@ -4,6 +4,7 @@
  */
 package br.com.moveti.erpmove.transporte.cte.model;
 
+import br.com.moveti.erpmove.transporte.cte.model.enuns.TipoPeriodoData;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
@@ -13,7 +14,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class comData {
 
     @XStreamAlias("tpPer")
-    private String tpPer;
+    private TipoPeriodoData tpPer;
     private String dProg;
 
     /**
@@ -23,7 +24,7 @@ public class comData {
      * Tamanho: 1
      * @param 
      */
-    public void setTpPer(String tpPer) {
+    public void setTpPer(TipoPeriodoData tpPer) {
         this.tpPer = tpPer;
     }
 
@@ -42,7 +43,7 @@ public class comData {
         return dProg;
     }
 
-    public String getTpPer() {
+    public TipoPeriodoData getTpPer() {
         return tpPer;
     }
 }

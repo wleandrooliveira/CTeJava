@@ -16,7 +16,9 @@ public class fluxo {
 
     @XStreamAlias("xOrig")
     private String xOrig;
-    private pass pass = new pass();
+    private pass pass;
+    private String xDest;
+    private String xRota;
 
     /**
      * Descricao: Sigla ou código interno da Filial/Porto/Estação/ Aeroporto de Origem
@@ -36,6 +38,26 @@ public class fluxo {
      */
     public void setPass(br.com.moveti.erpmove.transporte.cte.model.pass pass) {
         this.pass = pass;
+    }
+
+    /**
+     * Descricao: Sigla ou código interno da Filial/Porto/Estação/Aeroporto de Destino
+     * Observacao: Observações para o modal aéreo: - Preenchimento obrigatório para o modal
+     * Tamanho: 1 - 15
+     * @param 
+     */
+    public void setxDest(String xDest) {
+        this.xDest = xDest;
+    }
+
+    /**
+     * Descricao: Código da Rota de Entrega
+     * Observacao: 
+     * Tamanho: 1 - 10
+     * @param 
+     */
+    public void setxRota(String xRota) {
+        this.xRota = xRota;
     }
 
     public br.com.moveti.erpmove.transporte.cte.model.pass getPass() {

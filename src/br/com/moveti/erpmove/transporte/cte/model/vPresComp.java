@@ -12,8 +12,25 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("vPresComp")
 public class vPresComp {
-    @XStreamAlias("vTPrest")
-    private String vTPrest;
 
-    
+    @XStreamAlias("xNome")
+    private String xNome;
+    @XStreamAlias("vComp")
+    private Double vComp;
+
+    public void setxNome(String xNome) {
+        this.xNome = xNome;
+    }
+
+    public void setvComp(Double vComp) {
+        this.vComp = vComp;
+    }
+
+    public Double getvComp() {
+        return vComp;
+    }
+
+    public String getxNome() {
+        return xNome;
+    }
 }
